@@ -1,1 +1,46 @@
 
+ /* game section */
+ .row {
+  display:flex;
+  justify-content: space-evenly;
+  margin: 50px auto;
+}
+
+#div1 {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  background: blue;
+  
+}
+
+#div2 {
+  width: 100px;
+  height: 100px;    
+  padding: 10px;
+  background: red;
+  
+}
+#div3 {
+  width: 100px;
+  height: 100px;    
+  padding: 10px;
+  background: green;
+} 
+
+#div4 {
+  width: 100px;
+  height: 100px;    
+  padding: 10px;
+  background: brown;
+  
+}
+
+#divMain {
+  width: 100px;
+  height: 100px;    
+  padding: 10px;
+  background: yellow;
+  
+}
+/* end of game section */
