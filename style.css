@@ -1,6 +1,6 @@
 
-/* timer */
 #myProgress {
+  margin: 0 auto;
   width: 50%;
   background-color: #ddd;
 }
@@ -13,9 +13,11 @@
   line-height: 30px;
   color: white;
 }
- 
- 
- /* game section */
+
+#progressBar {
+  margin: 2rem auto;
+}
+
  .row {
   display:flex;
  }
@@ -69,13 +71,12 @@ nav ul li {
 }
 
 #instructions {
-  color: rgba(255, 255, 255);
-  text-transform: uppercase;
-  padding: 1rem 12rem 0;
-  text-align: left;
-  background: rgba(28, 41, 35, 0.603);
-  height: 8rem;
-  box-shadow: inset 0px 0px 0.125em 0.015em rgba(0, 0, 0, 0.55);
+    color: rgba(255, 255, 255);
+    text-transform: uppercase;
+    padding: 1rem 10rem 1.5em;
+    text-align: left;
+    background: rgba(28, 41, 35, 0.603);
+    box-shadow: inset 0px 0px 0.125em 0.015em rgba(0, 0, 0, 0.55);
 }
 
 .row {
@@ -138,7 +139,7 @@ div.game {
   box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);   
 }
 
-#divMain, #div1, #div2, #div3, #div4 {
+#divMain, #div1, #div2, #div3, #div4, #progressBar\\ {
   border: solid white .05em;
   
 }
