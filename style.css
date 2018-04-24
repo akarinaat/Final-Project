@@ -79,31 +79,32 @@ div.game {
   color: rgb(179, 179, 179);
   width: 6rem;
   height: 6rem;
-  
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);  
 }
 
 #div2 {
   color: rgb(179, 179, 179);
   width: 6rem;
-  height: 6rem;    
-  
+  height: 6rem;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);  
 }
 #div3 {
   color: rgb(179, 179, 179);
   width: 6rem;
-  height: 6rem;    
+  height: 6rem;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55); 
 } 
 
 #div4 {
   color: rgb(179, 179, 179);
   width: 6rem;
   height: 6rem;
-  
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55); 
 }
 
 #divMain {
   color: rgb(179, 179, 179);
   width: 6rem;
   height: 6rem;
-  
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);   
 }
