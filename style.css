@@ -1,3 +1,24 @@
+
+/* timer */
+#myProgress {
+  width: 50%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: rgba(11, 197, 126, 0.63);
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+ 
+ 
+ /* game section */
+ .row {
+  display:flex;
+
 html {
   height: 100%;
   width: 100%;
@@ -58,6 +79,7 @@ nav ul li {
 
 .row {
   display: flex;
+
   justify-content: space-evenly;
   margin: 1rem auto;
 }
@@ -117,4 +139,6 @@ div.game {
 
 #divMain, #div1, #div2, #div3, #div4 {
   border: solid white .05em;
+  
 }
+   
