@@ -7,6 +7,7 @@ var boxFour = document.getElementById( 'div4' );
 var boxMain = document.getElementById( 'divMain' );
 
 var tempColor;
+var score = 0;
 
 var setBackgroundColor1 = function () {
   tempColor = boxMain.style.background;
@@ -32,19 +33,41 @@ var setBackgroundColor4 = function () {
   boxFour.style.background = tempColor;
 };
 
+var progressBar;
+
+
 function handleClick( event ) {
   switch ( event.target.id ) {
   case 'div1':
     setBackgroundColor1();
+    if (progressBar) {
+      clearInterval(progressBar);
+    }
+    progressBar = timer();
     break;
   case 'div2':
     setBackgroundColor2();
+
+    if (progressBar) {
+      clearInterval(progressBar);
+    }
+    progressBar = timer();
     break;
   case 'div3':
     setBackgroundColor3();
+
+    if (progressBar) {
+      clearInterval(progressBar);
+    }
+    progressBar = timer();
     break;
   case 'div4':
     setBackgroundColor4();
+
+    if (progressBar) {
+      clearInterval(progressBar);
+    }
+    progressBar = timer();
     break;
   }
 }
@@ -52,4 +75,25 @@ function handleClick( event ) {
 boxOne.addEventListener( 'click', handleClick );
 boxTwo.addEventListener( 'click', handleClick );
 boxThree.addEventListener( 'click', handleClick );
-boxFour.addEventListener( 'click', handleClick );
+boxFour.addEventListener( 'click', handleClick);
+
+//timer
+
+function timer() {
+  var elem = document.getElementById('myBar');
+  var width = 20;
+  var id = setInterval(frame, 20);
+  function frame() {
+    if (width >= 100){
+      alert('Game Over!');
+      clearInterval(id);
+
+    } else {
+      width++;
+      elem.style.width = width + '%';
+      //elem.innerHTML = width * 1  + '%';
+      elem.innerHTML = 'you still have time!';
+    }
+  }
+  return id;
+}
