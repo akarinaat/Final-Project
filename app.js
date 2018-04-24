@@ -7,6 +7,10 @@ var boxFour = document.getElementById('div4');
 var boxMain = document.getElementById('divMain');
 
 var tempColor;
+var score;
+var tempTextValue;
+var progressBar;
+
 
 var setBackgroundColor1 = function () {
   tempColor = boxMain.style.background;
@@ -31,70 +35,6 @@ var setBackgroundColor4 = function () {
   boxMain.style.background = boxFour.style.background;
   boxFour.style.background = tempColor;
 };
-
-function handleClick(event) {
-  switch (event.target.id) {
-    case 'div1':
-      setBackgroundColor1();
-      break;
-    case 'div2':
-      setBackgroundColor2();
-      break;
-    case 'div3':
-      setBackgroundColor3();
-      break;
-    case 'div4':
-      setBackgroundColor4();
-      break;
-  }
-}
-
-boxOne.addEventListener('click', handleClick);
-boxTwo.addEventListener('click', handleClick);
-boxThree.addEventListener('click', handleClick);
-boxFour.addEventListener('click', handleClick);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //addition of results page code. -KH
@@ -147,3 +87,97 @@ boxFour.addEventListener('click', handleClick);
 //   // when your data changes, call updateLeaderboardView
 //   updateLeaderboardView();
 // }
+
+
+var setTextValue1 = function () {
+  tempTextValue = boxMain.textContent;
+  boxMain.textContent = boxOne.textContent;
+  boxOne.textContent = tempTextValue;
+};
+
+var setTextValue2 = function () {
+  tempTextValue = boxMain.textContent;
+  boxMain.textContent = boxTwo.textContent;
+  boxTwo.textContent = tempTextValue;
+};
+
+var setTextValue3 = function () {
+  tempTextValue = boxMain.textContent;
+  boxMain.textContent = boxThree.textContent;
+  boxThree.textContent = tempTextValue;
+};
+
+var setTextValue4 = function () {
+  tempTextValue = boxMain.textContent;
+  boxMain.textContent = boxFour.textContent;
+  boxFour.textContent = tempTextValue;
+};
+
+
+function handleClick( event ) {
+  switch ( event.target.id ) {
+  case 'div1':
+    setBackgroundColor1();
+    setTextValue1();
+
+    if (progressBar) {
+      clearInterval(progressBar);
+    }
+    progressBar = timer();
+    break;
+  case 'div2':
+    setBackgroundColor2();
+    setTextValue2();
+
+    if (progressBar) {
+      clearInterval(progressBar);
+    }
+    progressBar = timer();
+    break;
+  case 'div3':
+    setBackgroundColor3();
+    setTextValue3();
+
+    if (progressBar) {
+      clearInterval(progressBar);
+    }
+    progressBar = timer();
+    break;
+  case 'div4':
+    setBackgroundColor4();
+    setTextValue4();
+
+    if (progressBar) {
+      clearInterval(progressBar);
+    }
+    progressBar = timer();
+    break;
+  }
+}
+
+boxOne.addEventListener( 'click', handleClick );
+boxTwo.addEventListener( 'click', handleClick );
+boxThree.addEventListener( 'click', handleClick );
+boxFour.addEventListener( 'click', handleClick);
+
+//timer
+
+function timer() {
+  var elem = document.getElementById('myBar');
+  var width = 20;
+  var id = setInterval(frame, 20);
+  function frame() {
+    if (width >= 100){
+      alert('Game Over!');
+      clearInterval(id);
+
+    } else {
+      width++;
+      elem.style.width = width + '%';
+      //elem.innerHTML = width * 1  + '%';
+      elem.innerHTML = 'YOU WILL FAIL';
+    }
+  }
+  return id;
+}
+
