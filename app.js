@@ -44,6 +44,7 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+    score++;
     break;
   case 'div2':
     setBackgroundColor2();
@@ -52,6 +53,7 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+    score++;
     break;
   case 'div3':
     setBackgroundColor3();
@@ -60,6 +62,7 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+    score++;
     break;
   case 'div4':
     setBackgroundColor4();
@@ -68,6 +71,7 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+    score++;
     break;
   }
 }
