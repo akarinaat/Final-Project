@@ -65,6 +65,7 @@ function handleClick( event ) {
   switch ( event.target.id ) {
   case 'div1':
     setBackgroundColor1();
+    setTextValue1();
 
     if (progressBar) {
       clearInterval(progressBar);
@@ -97,8 +98,6 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
-
-    setTextValue1();
     break;
   }
 }
@@ -123,7 +122,7 @@ function timer() {
       width++;
       elem.style.width = width + '%';
       //elem.innerHTML = width * 1  + '%';
-      elem.innerHTML = 'you still have time!';
+      elem.innerHTML = 'YOU WILL FAIL';
     }
   }
   return id;
