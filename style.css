@@ -17,8 +17,9 @@ main {
 }
 
 header {
-  background: chocolate;
+  background: rgba(255, 255, 255, 0.589);
   height: 4rem;
+  box-shadow: 0px 0px .125em .015em rgba(0, 0, 0, 0.55);
 }
 
 h1 {
@@ -31,6 +32,7 @@ p {
 }
 
 nav ul {
+  color: rgb(105, 139, 124);
   line-height: 4rem;
   width: 30%;
   margin: 0 auto;
@@ -44,11 +46,13 @@ nav ul li {
 }
 
 #instructions {
+  color: rgba(255, 255, 255);
   text-transform: uppercase;
   padding: 1rem 12rem;
-  text-align: center;
-  background: teal;
+  text-align: left;
+  background: rgba(28, 41, 35, 0.603);
   height: 8rem;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);
 }
 
 .row {
