@@ -1,46 +1,120 @@
+html {
+  height: 100%;
+  width: 100%;
+}
 
- /* game section */
- .row {
-  display:flex;
+body {
+  font-size: 16px;
+  font-family: 'Archivo Narrow';
+}
+
+main {
+  background:rgb(105, 139, 124);
+  height: 100%;
+  width: 65%;
+  margin: 0 auto;
+  padding-bottom: 1.5rem;
+  box-shadow: inset 0px 0px .25em .055em rgba(0, 0, 0, 0.55);
+}
+
+header {
+  background: rgba(255, 255, 255, 0.589);
+  height: 4rem;
+  box-shadow: 0px 0px .125em .015em rgba(0, 0, 0, 0.55);
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+nav ul {
+  color: rgb(105, 139, 124);
+  line-height: 4rem;
+  width: 30%;
+  margin: 0 auto;
+}
+
+nav ul li {
+  padding-right: 3rem;
+  display: inline-block;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+#instructions {
+  color: rgba(255, 255, 255);
+  text-transform: uppercase;
+  padding: 1rem 12rem 0;
+  text-align: left;
+  background: rgba(28, 41, 35, 0.603);
+  height: 8rem;
+  box-shadow: inset 0px 0px 0.125em 0.015em rgba(0, 0, 0, 0.55);
+}
+
+.row {
+  display: flex;
   justify-content: space-evenly;
-  margin: 50px auto;
+  margin: 1rem auto;
+}
+
+div.game {
+  width: 60%;
+  margin: 1.5rem auto;
+  padding: 1rem 0;
+}
+
+.game div {
+  cursor: pointer;
+  border-radius: 6rem;
+  text-align: center;
+  line-height: 6rem;
+  color: white;
+  text-transform: uppercase;
+  font-size: 2em;
+  margin: .5rem 0;
+  padding: .25rem;
 }
 
 #div1 {
-  width: 100px;
-  height: 100px;
-  padding: 10px;
-  background: blue;
-  
+  color: rgb(179, 179, 179);
+  width: 6rem;
+  height: 6rem;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);  
 }
 
 #div2 {
-  width: 100px;
-  height: 100px;    
-  padding: 10px;
-  background: red;
-  
+  color: rgb(179, 179, 179);
+  width: 6rem;
+  height: 6rem;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);  
 }
+
 #div3 {
-  width: 100px;
-  height: 100px;    
-  padding: 10px;
-  background: green;
+  color: rgb(179, 179, 179);
+  width: 6rem;
+  height: 6rem;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55); 
 } 
 
 #div4 {
-  width: 100px;
-  height: 100px;    
-  padding: 10px;
-  background: brown;
-  
+  color: rgb(179, 179, 179);
+  width: 6rem;
+  height: 6rem;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55); 
 }
 
 #divMain {
-  width: 100px;
-  height: 100px;    
-  padding: 10px;
-  background: yellow;
-  
+  color: rgb(179, 179, 179);
+  width: 6rem;
+  height: 6rem;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);   
 }
-/* end of game section */
+
+#divMain, #div1, #div2, #div3, #div4 {
+  border: solid white .05em;
+}
