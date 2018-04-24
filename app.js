@@ -7,6 +7,7 @@ var boxFour = document.getElementById( 'div4' );
 var boxMain = document.getElementById( 'divMain' );
 
 var tempColor;
+var tempTextValue;
 
 var setBackgroundColor1 = function () {
   tempColor = boxMain.style.background;
@@ -32,19 +33,47 @@ var setBackgroundColor4 = function () {
   boxFour.style.background = tempColor;
 };
 
+var setTextValue1 = function () {
+  tempTextValue = boxMain.textContent;
+  boxMain.textContent = boxOne.textContent;
+  boxOne.textContent = tempTextValue;
+};
+
+var setTextValue2 = function () {
+  tempTextValue = boxMain.textContent;
+  boxMain.textContent = boxTwo.textContent;
+  boxTwo.textContent = tempTextValue;
+};
+
+var setTextValue3 = function () {
+  tempTextValue = boxMain.textContent;
+  boxMain.textContent = boxThree.textContent;
+  boxThree.textContent = tempTextValue;
+};
+
+var setTextValue4 = function () {
+  tempTextValue = boxMain.textContent;
+  boxMain.textContent = boxFour.textContent;
+  boxFour.textContent = tempTextValue;
+};
+
 function handleClick( event ) {
   switch ( event.target.id ) {
   case 'div1':
     setBackgroundColor1();
+    setTextValue1();
     break;
   case 'div2':
     setBackgroundColor2();
+    setTextValue2();
     break;
   case 'div3':
     setBackgroundColor3();
+    setTextValue3();
     break;
   case 'div4':
     setBackgroundColor4();
+    setTextValue4();
     break;
   }
 }
