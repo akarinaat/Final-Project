@@ -18,6 +18,7 @@
  /* game section */
  .row {
   display:flex;
+ }
 
 html {
   height: 100%;
