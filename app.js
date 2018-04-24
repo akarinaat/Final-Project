@@ -12,6 +12,32 @@ var tempTextValue;
 var progressBar;
 
 
+var getSpan = document.getElementById('wordcolors');
+
+
+
+var previousColor;
+
+function getRandomColor() {
+
+
+  var colorWord = ['Yellow','Blue','Green','Purple','Red'];
+  do{
+    var randomIndex = colorWord[Math.floor(Math.random() * colorWord.length)];
+  }
+  while(previousColor === randomIndex);
+  previousColor = randomIndex;
+  console.log(previousColor);
+  console.log(randomIndex);
+  return randomIndex;
+
+}
+
+
+getRandomColor();
+
+
+
 var setBackgroundColor1 = function () {
   tempColor = boxMain.style.background;
   boxMain.style.background = boxOne.style.background;
@@ -61,11 +87,17 @@ var setTextValue4 = function () {
 };
 
 
+
+function newFunction(randomIndex) {
+  console.log(randomIndex);
+}
+
 function handleClick( event ) {
   switch ( event.target.id ) {
   case 'div1':
     setBackgroundColor1();
     setTextValue1();
+    getSpan.textContent = getRandomColor();
 
     if (progressBar) {
       clearInterval(progressBar);
@@ -75,7 +107,7 @@ function handleClick( event ) {
   case 'div2':
     setBackgroundColor2();
     setTextValue2();
-
+    getSpan.textContent = getRandomColor();
     if (progressBar) {
       clearInterval(progressBar);
     }
@@ -84,6 +116,7 @@ function handleClick( event ) {
   case 'div3':
     setBackgroundColor3();
     setTextValue3();
+    getSpan.textContent = getRandomColor();
 
     if (progressBar) {
       clearInterval(progressBar);
@@ -93,6 +126,7 @@ function handleClick( event ) {
   case 'div4':
     setBackgroundColor4();
     setTextValue4();
+    getSpan.textContent = getRandomColor();
 
     if (progressBar) {
       clearInterval(progressBar);
