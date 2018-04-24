@@ -7,10 +7,9 @@ var boxFour = document.getElementById( 'div4' );
 var boxMain = document.getElementById( 'divMain' );
 
 var tempColor;
-
-var score = 0;
-
+var score;
 var tempTextValue;
+var progressBar;
 
 
 var setBackgroundColor1 = function () {
@@ -36,10 +35,6 @@ var setBackgroundColor4 = function () {
   boxMain.style.background = boxFour.style.background;
   boxFour.style.background = tempColor;
 };
-
-
-var progressBar;
-
 
 var setTextValue1 = function () {
   tempTextValue = boxMain.textContent;
@@ -78,6 +73,7 @@ function handleClick( event ) {
     break;
   case 'div2':
     setBackgroundColor2();
+    setTextValue2();
 
     if (progressBar) {
       clearInterval(progressBar);
@@ -86,6 +82,7 @@ function handleClick( event ) {
     break;
   case 'div3':
     setBackgroundColor3();
+    setTextValue3();
 
     if (progressBar) {
       clearInterval(progressBar);
@@ -94,6 +91,7 @@ function handleClick( event ) {
     break;
   case 'div4':
     setBackgroundColor4();
+    setTextValue4();
 
     if (progressBar) {
       clearInterval(progressBar);
@@ -101,19 +99,6 @@ function handleClick( event ) {
     progressBar = timer();
 
     setTextValue1();
-    break;
-  case 'div2':
-    setBackgroundColor2();
-    setTextValue2();
-    break;
-  case 'div3':
-    setBackgroundColor3();
-    setTextValue3();
-    break;
-  case 'div4':
-    setBackgroundColor4();
-    setTextValue4();
-
     break;
   }
 }
