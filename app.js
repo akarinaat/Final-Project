@@ -7,7 +7,7 @@ var boxFour = document.getElementById( 'div4' );
 var boxMain = document.getElementById( 'divMain' );
 
 var tempColor;
-var score;
+var playerScore = 0;
 var tempTextValue;
 var progressBar;
 
@@ -16,20 +16,18 @@ var getSpan = document.getElementById('wordcolors');
 
 
 
-var previousColor;
+var previousColor = boxMain.style.background;
 
 function getRandomColor() {
 
 
   var colorWord = ['Yellow','Blue','Green','Purple','Red'];
   do{
-    var randomIndex = colorWord[Math.floor(Math.random() * colorWord.length)];
+    var currentColor = colorWord[Math.floor(Math.random() * colorWord.length)];
   }
-  while(previousColor === randomIndex);
-  previousColor = randomIndex;
-  console.log(previousColor);
-  console.log(randomIndex);
-  return randomIndex;
+  while(previousColor === currentColor);
+  previousColor = currentColor;
+  return currentColor;
 
 }
 
@@ -87,11 +85,6 @@ var setTextValue4 = function () {
 };
 
 
-
-function newFunction(randomIndex) {
-  console.log(randomIndex);
-}
-
 function handleClick( event ) {
   switch ( event.target.id ) {
   case 'div1':
@@ -103,6 +96,7 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+    playerScore++;
     break;
   case 'div2':
     setBackgroundColor2();
@@ -112,6 +106,7 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+    playerScore++;
     break;
   case 'div3':
     setBackgroundColor3();
@@ -122,6 +117,7 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+    playerScore++;
     break;
   case 'div4':
     setBackgroundColor4();
@@ -132,9 +128,14 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+    playerScore++;
     break;
   }
+  getScore.textContent = playerScore;
 }
+
+var getScore = document.getElementById('player-score');
+
 
 boxOne.addEventListener( 'click', handleClick );
 boxTwo.addEventListener( 'click', handleClick );
