@@ -144,6 +144,30 @@ div.game {
   
 }
 
+<<<<<<< HEAD
+img{
+  margin-left: 20px;
+}
+   
+#sectioned .text{
+  
+  border: 1px solid transparent;
+  width: 350px;
+  height: 360px;
+  display: inline-block;
+  overflow: scroll;
+  margin-left: 30px;
+  margin-bottom: 0px;
+  vertical-align: 1em;
+  
+}
+
+.text{
+  transform: translate(0,7%);
+
+}
+
+=======
 /* end of game section */
 
 
@@ -179,3 +203,4 @@ div.game {
 /* end of list of scores.html*/
 
    
+>>>>>>> master

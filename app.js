@@ -190,7 +190,7 @@ boxFour.addEventListener( 'click', handleClick);
 function timer() {
   var elem = document.getElementById('myBar');
   var width = 20;
-  var id = setInterval(frame, 60);
+  var id = setInterval(frame, 40);
   function frame() {
     if (width >= 100){
       alert('Game Over!');
