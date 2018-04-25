@@ -10,6 +10,9 @@ var tempColor;
 var playerScore = 0;
 var tempTextValue;
 var progressBar;
+
+var players = [];
+
 fetchPlayers();
 // Listen for form submit
 document.getElementById('playerForm').addEventListener('submit', savePlayer);
@@ -34,14 +37,14 @@ function savePlayer(e){
   // checks if players is empty
   if(localStorage.getItem('players')=== null){
     //init array
-    var players = [];
+    
     //add to array
     players.unshift(player);
     //set to local storage
     localStorage.setItem('players', JSON.stringify(players));
   } else {
     //get players from local storage
-    var players = JSON.parse(localStorage.getItem('players'));
+    players = JSON.parse(localStorage.getItem('players'));
 
     //add player to array
     players.unshift(player);
@@ -61,14 +64,23 @@ function savePlayer(e){
 // Fetch players
 function fetchPlayers(){
   // Get players from localStorage
-  var players = JSON.parse(localStorage.getItem('players'));
+  if (localStorage.getItem('players')) 
+    players = JSON.parse(localStorage.getItem('players'));
   console.log(players);
   // Get output id
   var savedPlayersResults = document.getElementById('savedPlayersResults');
 
-  // Build output
+  // Build output clear
   savedPlayersResults.innerHTML = '';
-  for(var i = 0; i < 5; i++){
+ 
+  var limit;
+  if (players.length > 5) {
+    limit = 5;
+  } else {
+    limit = players.length;
+  }
+ 
+  for(var i = 0; i < limit; i++){
 
     //players.length
     var name = players[i].name;
@@ -108,6 +120,20 @@ function getRandomColor() {
   return currentColor;
 
 }
+//new
+var previousStart;
+function getRandomStart() {
+  var colorStart = [ 'yellow', 'blue', 'green', 'red' ];
+  do {
+    var currentStart = colorStart[ Math.floor( Math.random() * colorStart.length ) ];
+  }
+  while ( previousStart === currentStart || previousColor === currentStart );
+
+  previousStart = currentStart;
+  return currentStart;
+}
+
+
 
 
 getRandomColor();
@@ -161,13 +187,21 @@ var setTextValue4 = function () {
 };
 
 
-function handleStart ( event ) {
-  switch ( event.target.id) {
-  case 'start':
-    getSpan.textContent = getRandomColor();
+// function handleStart ( event ) {
+//   switch ( event.target.id) {
+//   case 'start':
+//     getSpan.textContent = getRandomColor();
 
+//   }
+// }
+// new
+function handleStart( event ) {
+  switch ( event.target.id ) {
+  case 'start':
+    getSpan.textContent = getRandomStart();
   }
 }
+
 
 function handleClick( event ) {
   switch ( event.target.id ) {
@@ -255,6 +289,8 @@ function handleClick( event ) {
 
 var getScore = document.getElementById('player-score');
 var startGame = document.getElementById('start');
+
+//
 
 startGame.addEventListener('click', handleStart);
 boxOne.addEventListener( 'click', handleClick );
