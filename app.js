@@ -108,10 +108,14 @@ function validateForm(playerName, playerScore){
 ///end changes on tue
 
 var getSpan = document.getElementById('wordcolors');
-var previousColor = boxMain.style;
+
 
 function getRandomColor() {
+  var previousColor = boxMain.style.background;
   var colorWord = ['yellow','blue','green','purple','red'];
+  colorWord = colorWord.filter(function(color){
+    return color !== previousColor;
+  });
   do{
     var currentColor = colorWord[Math.floor(Math.random() * colorWord.length)];
   }
@@ -123,12 +127,12 @@ function getRandomColor() {
 //new
 var previousStart;
 function getRandomStart() {
+  var previousColor = boxMain.style.background;
   var colorStart = [ 'yellow', 'blue', 'green', 'red' ];
   do {
     var currentStart = colorStart[ Math.floor( Math.random() * colorStart.length ) ];
   }
   while ( previousStart === currentStart || previousColor === currentStart );
-
   previousStart = currentStart;
   return currentStart;
 }
@@ -296,6 +300,7 @@ function timer() {
   }
   return id;
 }
+
 
 
 
