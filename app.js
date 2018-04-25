@@ -5,25 +5,37 @@ var boxTwo = document.getElementById( 'div2' );
 var boxThree = document.getElementById( 'div3' );
 var boxFour = document.getElementById( 'div4' );
 var boxMain = document.getElementById( 'divMain' );
+var getSpan = document.getElementById( 'wordcolors' );
 
 var tempColor;
 var playerScore = 0;
 var tempTextValue;
 var progressBar;
 
-var getSpan = document.getElementById( 'wordcolors' );
-var previousColor = boxMain.style.background;
-
-function getRandomColor() {
-  var colorWord = [ 'yellow', 'blue', 'green', 'purple', 'red' ];
+var previousValue = [ boxMain.style.background, boxMain.textContent ];
+function getRandomValue() {
+  var colorWord = [ [ 'blue', '1' ], [ 'red', '2' ], [ 'yellow', '3' ], [ 'green', '4' ], [ 'purple', '5' ], ];
   do {
-    var currentColor = colorWord[ Math.floor( Math.random() * colorWord.length ) ];
+    var currentValue = colorWord[ Math.floor( Math.random() * colorWord.length ) ];
+    var chooseValue = currentValue[ Math.round( Math.random() ) ];
+
   }
-  while ( previousColor === currentColor );
-  previousColor = currentColor;
-  return currentColor;
+  while ( currentValue === previousValue );
+  previousValue = currentValue;
+  return chooseValue;
 }
-getRandomColor();
+
+var previousStart;
+function getRandomStart() {
+  var colorStart = [ 'yellow', 'blue', 'green', 'red' ];
+  do {
+    var currentStart = colorStart[ Math.floor( Math.random() * colorStart.length ) ];
+  }
+  while ( previousStart === currentStart || previousValue === currentStart );
+
+  previousStart = currentStart;
+  return currentStart;
+}
 
 var setBackgroundColor1 = function () {
   tempColor = boxMain.style.background;
@@ -77,8 +89,7 @@ var setTextValue4 = function () {
 function handleStart( event ) {
   switch ( event.target.id ) {
   case 'start':
-    getSpan.textContent = getRandomColor();
-
+    getSpan.textContent = getRandomStart();
   }
 }
 
@@ -86,12 +97,11 @@ function handleClick( event ) {
   switch ( event.target.id ) {
   // Functionality for 'boxOne' element.
   case 'div1':
-    if ( getSpan.textContent.toLowerCase() !== boxOne.style.background.toLowerCase() ) {
-      console.log( getSpan.textContent );
-      console.log( boxOne.style.background );
+    if ( getSpan.textContent.toLowerCase() !== boxOne.style.background.toLowerCase() &&
+      getSpan.textContent !== boxOne.textContent ) {
       alert( 'Nice try!' );
     }
-    getSpan.textContent = getRandomColor();
+    getSpan.textContent = getRandomValue();
     setBackgroundColor1();
     setTextValue1();
 
@@ -103,12 +113,13 @@ function handleClick( event ) {
     break;
   // Functionality for 'boxTwo' element.
   case 'div2':
-    if ( getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase() ) {
+    if ( getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase() &&
+      getSpan.textContent !== boxTwo.textContent ) {
       console.log( getSpan.textContent );
       console.log( boxTwo.style.background );
       alert( 'Nice try!' );
     }
-    getSpan.textContent = getRandomColor();
+    getSpan.textContent = getRandomValue();
     setBackgroundColor2();
     setTextValue2();
 
@@ -120,10 +131,11 @@ function handleClick( event ) {
     break;
   // Functionality for 'boxThree' element.
   case 'div3':
-    if ( getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase() ) {
+    if ( getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase() &&
+      getSpan.textContent !== boxThree.textContent ) {
       alert( 'Nice try!' );
     }
-    getSpan.textContent = getRandomColor();
+    getSpan.textContent = getRandomValue();
     setBackgroundColor3();
     setTextValue3();
 
@@ -135,10 +147,11 @@ function handleClick( event ) {
     break;
   // Functionality for 'boxFour' element.
   case 'div4':
-    if ( getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase() ) {
+    if ( getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase() &&
+      getSpan.textContent !== boxFour.textContent ) {
       alert( 'Nice try!' );
     }
-    getSpan.textContent = getRandomColor();
+    getSpan.textContent = getRandomValue();
     setBackgroundColor4();
     setTextValue4();
 
@@ -161,7 +174,6 @@ boxTwo.addEventListener( 'click', handleClick );
 boxThree.addEventListener( 'click', handleClick );
 boxFour.addEventListener( 'click', handleClick );
 
-
 // Progress bar/timer functionality.
 function timer() {
   var elem = document.getElementById( 'myBar' );
@@ -180,5 +192,4 @@ function timer() {
   }
   return id;
 }
-
 
