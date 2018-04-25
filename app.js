@@ -22,8 +22,8 @@ function savePlayer(e){
   // Get form values
   var playerName =document.getElementById('player-name').value;
   //var playerSavedScore =document.getElementById('player-score').value;
-  
-  //validation 
+
+  //validation
   if(!validateForm(playerName, playerScore)){
     return false;
   }
@@ -33,11 +33,11 @@ function savePlayer(e){
     score: playerScore,
     //playerSavedScore,
   };
-  
+
   // checks if players is empty
   if(localStorage.getItem('players')=== null){
     //init array
-    
+
     //add to array
     players.unshift(player);
     //set to local storage
@@ -50,7 +50,7 @@ function savePlayer(e){
     players.unshift(player);
 
 
-    
+
     //re-set back to local storage
     localStorage.setItem('players', JSON.stringify(players));
 
@@ -64,7 +64,7 @@ function savePlayer(e){
 // Fetch players
 function fetchPlayers(){
   // Get players from localStorage
-  if (localStorage.getItem('players')) 
+  if (localStorage.getItem('players'))
     players = JSON.parse(localStorage.getItem('players'));
   console.log(players);
   // Get output id
@@ -72,14 +72,14 @@ function fetchPlayers(){
 
   // Build output clear
   savedPlayersResults.innerHTML = '';
- 
+
   var limit;
   if (players.length > 5) {
     limit = 5;
   } else {
     limit = players.length;
   }
- 
+
   for(var i = 0; i < limit; i++){
 
     //players.length
@@ -87,7 +87,7 @@ function fetchPlayers(){
     var score = players[i].score;
 
     savedPlayersResults.innerHTML += '<p> Players Name: ' + name + '  ,  Score: ' + score + '</p>';
-                                 
+
   }
 
   // reset form
@@ -108,7 +108,7 @@ function validateForm(playerName, playerScore){
 ///end changes on tue
 
 var getSpan = document.getElementById('wordcolors');
-var previousColor = boxMain.style.background;
+var previousColor = boxMain.style;
 
 function getRandomColor() {
   var colorWord = ['yellow','blue','green','purple','red'];
@@ -186,15 +186,6 @@ var setTextValue4 = function () {
   boxFour.textContent = tempTextValue;
 };
 
-
-// function handleStart ( event ) {
-//   switch ( event.target.id) {
-//   case 'start':
-//     getSpan.textContent = getRandomColor();
-
-//   }
-// }
-// new
 function handleStart( event ) {
   switch ( event.target.id ) {
   case 'start':
@@ -213,19 +204,15 @@ function handleClick( event ) {
     }
     setBackgroundColor1();
     setTextValue1();
-
     getSpan.textContent = getRandomColor();
-
-
-
     if (progressBar) {
       clearInterval(progressBar);
     }
     progressBar = timer();
-
     playerScore++;
-
     break;
+
+
   case 'div2':
     if(getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase()){
       console.log(getSpan.textContent);
@@ -235,15 +222,14 @@ function handleClick( event ) {
     setBackgroundColor2();
     setTextValue2();
     getSpan.textContent = getRandomColor();
-
-
     if (progressBar) {
       clearInterval(progressBar);
     }
     progressBar = timer();
     playerScore++;
-
     break;
+
+
   case 'div3':
     if(getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase()){
       console.log(getSpan.textContent);
@@ -253,16 +239,14 @@ function handleClick( event ) {
     setBackgroundColor3();
     setTextValue3();
     getSpan.textContent = getRandomColor();
-
-
     if (progressBar) {
       clearInterval(progressBar);
     }
     progressBar = timer();
-
     playerScore++;
-
     break;
+
+
   case 'div4':
     if(getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase()){
       console.log(getSpan.textContent);
@@ -272,16 +256,11 @@ function handleClick( event ) {
     setBackgroundColor4();
     setTextValue4();
     getSpan.textContent = getRandomColor();
-    // console.log(getSpan.textContent);
-    // console.log(boxFour.style.background);
-
-
     if (progressBar) {
       clearInterval(progressBar);
     }
     progressBar = timer();
     playerScore++;
-
     break;
   }
   getScore.textContent = playerScore;
@@ -290,7 +269,6 @@ function handleClick( event ) {
 var getScore = document.getElementById('player-score');
 var startGame = document.getElementById('start');
 
-//
 
 startGame.addEventListener('click', handleStart);
 boxOne.addEventListener( 'click', handleClick );
@@ -319,46 +297,6 @@ function timer() {
   return id;
 }
 
-
-// //addition of results page code. -KH
-// score = [
-//   { name: 'Player-1', score:0},
-//   { name: 'Player-2', score:0},
-//   { name: 'Player-3', score:0},
-//   { name: 'Player-4', score:0},
-//   { name: 'Player-5', score:0},
-// ];
-
-// function updateLeaderboardView() {
-//   var leaderboard = document.getElementById('leaderboard');
-//   leaderboard.innerHTML = '';
-
-//   score.sort(function (a, b){});
-//   var elements = []; // we'll need created elements to update colors later on
-//   // create elements for each player
-//   for (var i = 0; i < score.length; i++) {
-//     var name = document.createElementClass('div');
-//     var score = document.createElementClass('div');
-
-//   }
-
-//   var colors = ['gold', 'silver', '#cd7f32'];
-//   for (i = 0; i < 3; i++) {
-//     elements[i].style.color = colors[i];
-//   }
-// }
-
-
-// //still work in progress...
-
-// function randomize() {
-//   for (var i = 0; i < score.length; i++) {
-//     score[i].score = Math.floor(Math.random() * score);
-//   }
-//   // when your data changes, call updateLeaderboardView
-//   updateLeaderboardView();
-// }
-// randomize();
 
 
 
