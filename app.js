@@ -7,7 +7,7 @@ var boxFour = document.getElementById( 'div4' );
 var boxMain = document.getElementById( 'divMain' );
 
 var tempColor;
-var playerScore = 0;
+var playerScore;
 var tempTextValue;
 var progressBar;
 
