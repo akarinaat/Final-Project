@@ -10,17 +10,95 @@ var tempColor;
 var playerScore = 0;
 var tempTextValue;
 var progressBar;
+fetchPlayers();
+// Listen for form submit
+document.getElementById('playerForm').addEventListener('submit', savePlayer);
 
+// Save Player
+function savePlayer(e){
+  // Get form values
+  var playerName =document.getElementById('player-name').value;
+  //var playerSavedScore =document.getElementById('player-score').value;
+  
+  //validation 
+  if(!validateForm(playerName, playerScore)){
+    return false;
+  }
+
+  var player = {
+    name: playerName,
+    score: playerScore,
+    //playerSavedScore,
+  };
+  
+  // checks if players is empty
+  if(localStorage.getItem('players')=== null){
+    //init array
+    var players = [];
+    //add to array
+    players.unshift(player);
+    //set to local storage
+    localStorage.setItem('players', JSON.stringify(players));
+  } else {
+    //get players from local storage
+    var players = JSON.parse(localStorage.getItem('players'));
+
+    //add player to array
+    players.unshift(player);
+
+
+    
+    //re-set back to local storage
+    localStorage.setItem('players', JSON.stringify(players));
+
+  }
+  // Re-fetch players
+  fetchPlayers();
+
+  e.preventDefault();
+}
+
+// Fetch players
+function fetchPlayers(){
+  // Get players from localStorage
+  var players = JSON.parse(localStorage.getItem('players'));
+  console.log(players);
+  // Get output id
+  var savedPlayersResults = document.getElementById('savedPlayersResults');
+
+  // Build output
+  savedPlayersResults.innerHTML = '';
+  for(var i = 0; i < 5; i++){
+
+    //players.length
+    var name = players[i].name;
+    var score = players[i].score;
+
+    savedPlayersResults.innerHTML += '<p> Players Name: ' + name + '  ,  Score: ' + score + '</p>';
+                                 
+  }
+
+  // reset form
+  document.getElementById('playerForm').reset();
+  playerScore = 0;
+}
+
+// Validate Form
+function validateForm(playerName, playerScore){
+  if(!playerName || !playerScore){
+    alert('Please fill in the Name and start paying');
+    return false;
+  }
+
+  return true;
+}
+
+///end changes on tue
 
 var getSpan = document.getElementById('wordcolors');
-
-
-
 var previousColor = boxMain.style.background;
 
 function getRandomColor() {
-
-
   var colorWord = ['yellow','blue','green','purple','red'];
   do{
     var currentColor = colorWord[Math.floor(Math.random() * colorWord.length)];
@@ -33,13 +111,6 @@ function getRandomColor() {
 
 
 getRandomColor();
-
-
-
-
-
-
-
 
 var setBackgroundColor1 = function () {
   tempColor = boxMain.style.background;
@@ -117,7 +188,9 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+
     playerScore++;
+
     break;
   case 'div2':
     if(getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase()){
@@ -135,6 +208,7 @@ function handleClick( event ) {
     }
     progressBar = timer();
     playerScore++;
+
     break;
   case 'div3':
     if(getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase()){
@@ -151,7 +225,9 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+
     playerScore++;
+
     break;
   case 'div4':
     if(getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase()){
@@ -171,6 +247,7 @@ function handleClick( event ) {
     }
     progressBar = timer();
     playerScore++;
+
     break;
   }
   getScore.textContent = playerScore;
@@ -205,5 +282,47 @@ function timer() {
   }
   return id;
 }
+
+
+// //addition of results page code. -KH
+// score = [
+//   { name: 'Player-1', score:0},
+//   { name: 'Player-2', score:0},
+//   { name: 'Player-3', score:0},
+//   { name: 'Player-4', score:0},
+//   { name: 'Player-5', score:0},
+// ];
+
+// function updateLeaderboardView() {
+//   var leaderboard = document.getElementById('leaderboard');
+//   leaderboard.innerHTML = '';
+
+//   score.sort(function (a, b){});
+//   var elements = []; // we'll need created elements to update colors later on
+//   // create elements for each player
+//   for (var i = 0; i < score.length; i++) {
+//     var name = document.createElementClass('div');
+//     var score = document.createElementClass('div');
+
+//   }
+
+//   var colors = ['gold', 'silver', '#cd7f32'];
+//   for (i = 0; i < 3; i++) {
+//     elements[i].style.color = colors[i];
+//   }
+// }
+
+
+// //still work in progress...
+
+// function randomize() {
+//   for (var i = 0; i < score.length; i++) {
+//     score[i].score = Math.floor(Math.random() * score);
+//   }
+//   // when your data changes, call updateLeaderboardView
+//   updateLeaderboardView();
+// }
+// randomize();
+
 
 
