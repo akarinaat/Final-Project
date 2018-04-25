@@ -11,16 +11,106 @@ var playerScore = 0;
 var tempTextValue;
 var progressBar;
 
+var players = [];
+
+fetchPlayers();
+// Listen for form submit
+document.getElementById('playerForm').addEventListener('submit', savePlayer);
+
+// Save Player
+function savePlayer(e){
+  // Get form values
+  var playerName =document.getElementById('player-name').value;
+  //var playerSavedScore =document.getElementById('player-score').value;
+  
+  //validation 
+  if(!validateForm(playerName, playerScore)){
+    return false;
+  }
+
+  var player = {
+    name: playerName,
+    score: playerScore,
+    //playerSavedScore,
+  };
+  
+  // checks if players is empty
+  if(localStorage.getItem('players')=== null){
+    //init array
+    
+    //add to array
+    players.unshift(player);
+    //set to local storage
+    localStorage.setItem('players', JSON.stringify(players));
+  } else {
+    //get players from local storage
+    players = JSON.parse(localStorage.getItem('players'));
+
+    //add player to array
+    players.unshift(player);
+
+
+    
+    //re-set back to local storage
+    localStorage.setItem('players', JSON.stringify(players));
+
+  }
+  // Re-fetch players
+  fetchPlayers();
+
+  e.preventDefault();
+}
+
+// Fetch players
+function fetchPlayers(){
+  // Get players from localStorage
+  if (localStorage.getItem('players')) 
+    players = JSON.parse(localStorage.getItem('players'));
+  console.log(players);
+  // Get output id
+  var savedPlayersResults = document.getElementById('savedPlayersResults');
+
+  // Build output clear
+  savedPlayersResults.innerHTML = '';
+ 
+  var limit;
+  if (players.length > 5) {
+    limit = 5;
+  } else {
+    limit = players.length;
+  }
+ 
+  for(var i = 0; i < limit; i++){
+
+    //players.length
+    var name = players[i].name;
+    var score = players[i].score;
+
+    savedPlayersResults.innerHTML += '<p> Players Name: ' + name + '  ,  Score: ' + score + '</p>';
+                                 
+  }
+
+  // reset form
+  document.getElementById('playerForm').reset();
+  playerScore = 0;
+}
+
+// Validate Form
+function validateForm(playerName, playerScore){
+  if(!playerName || !playerScore){
+    alert('Please fill in the Name and start paying');
+    return false;
+  }
+
+  return true;
+}
+
+///end changes on tue
 
 var getSpan = document.getElementById('wordcolors');
-
-
-
 var previousColor = boxMain.style.background;
 
 function getRandomColor() {
-
-
   var colorWord = ['yellow','blue','green','purple','red'];
   do{
     var currentColor = colorWord[Math.floor(Math.random() * colorWord.length)];
@@ -30,16 +120,23 @@ function getRandomColor() {
   return currentColor;
 
 }
+//new
+var previousStart;
+function getRandomStart() {
+  var colorStart = [ 'yellow', 'blue', 'green', 'red' ];
+  do {
+    var currentStart = colorStart[ Math.floor( Math.random() * colorStart.length ) ];
+  }
+  while ( previousStart === currentStart || previousColor === currentStart );
+
+  previousStart = currentStart;
+  return currentStart;
+}
+
+
 
 
 getRandomColor();
-
-
-
-
-
-
-
 
 var setBackgroundColor1 = function () {
   tempColor = boxMain.style.background;
@@ -90,13 +187,21 @@ var setTextValue4 = function () {
 };
 
 
-function handleStart ( event ) {
-  switch ( event.target.id) {
-  case 'start':
-    getSpan.textContent = getRandomColor();
+// function handleStart ( event ) {
+//   switch ( event.target.id) {
+//   case 'start':
+//     getSpan.textContent = getRandomColor();
 
+//   }
+// }
+// new
+function handleStart( event ) {
+  switch ( event.target.id ) {
+  case 'start':
+    getSpan.textContent = getRandomStart();
   }
 }
+
 
 function handleClick( event ) {
   switch ( event.target.id ) {
@@ -117,7 +222,9 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+
     playerScore++;
+
     break;
   case 'div2':
     if(getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase()){
@@ -135,6 +242,7 @@ function handleClick( event ) {
     }
     progressBar = timer();
     playerScore++;
+
     break;
   case 'div3':
     if(getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase()){
@@ -151,7 +259,9 @@ function handleClick( event ) {
       clearInterval(progressBar);
     }
     progressBar = timer();
+
     playerScore++;
+
     break;
   case 'div4':
     if(getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase()){
@@ -171,6 +281,7 @@ function handleClick( event ) {
     }
     progressBar = timer();
     playerScore++;
+
     break;
   }
   getScore.textContent = playerScore;
@@ -178,6 +289,8 @@ function handleClick( event ) {
 
 var getScore = document.getElementById('player-score');
 var startGame = document.getElementById('start');
+
+//
 
 startGame.addEventListener('click', handleStart);
 boxOne.addEventListener( 'click', handleClick );
@@ -190,7 +303,7 @@ boxFour.addEventListener( 'click', handleClick);
 function timer() {
   var elem = document.getElementById('myBar');
   var width = 20;
-  var id = setInterval(frame, 60);
+  var id = setInterval(frame, 40);
   function frame() {
     if (width >= 100){
       alert('Game Over!');
@@ -205,5 +318,47 @@ function timer() {
   }
   return id;
 }
+
+
+// //addition of results page code. -KH
+// score = [
+//   { name: 'Player-1', score:0},
+//   { name: 'Player-2', score:0},
+//   { name: 'Player-3', score:0},
+//   { name: 'Player-4', score:0},
+//   { name: 'Player-5', score:0},
+// ];
+
+// function updateLeaderboardView() {
+//   var leaderboard = document.getElementById('leaderboard');
+//   leaderboard.innerHTML = '';
+
+//   score.sort(function (a, b){});
+//   var elements = []; // we'll need created elements to update colors later on
+//   // create elements for each player
+//   for (var i = 0; i < score.length; i++) {
+//     var name = document.createElementClass('div');
+//     var score = document.createElementClass('div');
+
+//   }
+
+//   var colors = ['gold', 'silver', '#cd7f32'];
+//   for (i = 0; i < 3; i++) {
+//     elements[i].style.color = colors[i];
+//   }
+// }
+
+
+// //still work in progress...
+
+// function randomize() {
+//   for (var i = 0; i < score.length; i++) {
+//     score[i].score = Math.floor(Math.random() * score);
+//   }
+//   // when your data changes, call updateLeaderboardView
+//   updateLeaderboardView();
+// }
+// randomize();
+
 
 

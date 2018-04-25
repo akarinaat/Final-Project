@@ -21,9 +21,17 @@
   </header>
   <main>
     <section id="instructions">
-      <h1>N A M E</h1>
+      <form id="playerForm">
+       <div class="player-info">
+          <label>Your Name</label>
+          <input type="text" class="form-control" id="player-name" placeholder="Enter you name">
+          <h2>Score <span id="player-score"></span></h2>
+          <button type="submit" class="player info">Submit your Score</button>
+        </div>
+      </form>
+      
       <p>Click on <span id="wordcolors"></span></p>
-      <p>Score <span id="player-score"></span></p>
+      
       <button id="start">START</button>
     </section>
     <section id="progressBar">
@@ -49,7 +57,9 @@
     </div>
   </main>
   <footer>
-
+      <div class="results">
+          <div id="savedPlayersResults"></div>
+      </div>
   </footer>
 </body>
 <script src="app.js"></script>
