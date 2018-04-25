@@ -7,7 +7,7 @@ var boxFour = document.getElementById( 'div4' );
 var boxMain = document.getElementById( 'divMain' );
 
 var tempColor;
-var playerScore;
+var playerScore = 0;
 var tempTextValue;
 var progressBar;
 
@@ -91,9 +91,9 @@ function handleClick( event ) {
       console.log( boxOne.style.background );
       alert( 'Nice try!' );
     }
+    getSpan.textContent = getRandomColor();
     setBackgroundColor1();
     setTextValue1();
-    getSpan.textContent = getRandomColor();
 
     if ( progressBar ) {
       clearInterval( progressBar );
@@ -108,9 +108,9 @@ function handleClick( event ) {
       console.log( boxTwo.style.background );
       alert( 'Nice try!' );
     }
+    getSpan.textContent = getRandomColor();
     setBackgroundColor2();
     setTextValue2();
-    getSpan.textContent = getRandomColor();
 
     if ( progressBar ) {
       clearInterval( progressBar );
@@ -123,9 +123,9 @@ function handleClick( event ) {
     if ( getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase() ) {
       alert( 'Nice try!' );
     }
+    getSpan.textContent = getRandomColor();
     setBackgroundColor3();
     setTextValue3();
-    getSpan.textContent = getRandomColor();
 
     if ( progressBar ) {
       clearInterval( progressBar );
@@ -138,9 +138,9 @@ function handleClick( event ) {
     if ( getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase() ) {
       alert( 'Nice try!' );
     }
+    getSpan.textContent = getRandomColor();
     setBackgroundColor4();
     setTextValue4();
-    getSpan.textContent = getRandomColor();
 
     if ( progressBar ) {
       clearInterval( progressBar );
@@ -166,7 +166,7 @@ boxFour.addEventListener( 'click', handleClick );
 function timer() {
   var elem = document.getElementById( 'myBar' );
   var width = 20;
-  var id = setInterval( frame, 60 );
+  var id = setInterval( frame, 20 );
   function frame() {
     if ( width >= 100 ) {
       alert( 'Game Over!' );
