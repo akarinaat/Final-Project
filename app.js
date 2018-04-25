@@ -1,45 +1,29 @@
 'use strict';
 
-var boxOne = document.getElementById('div1');
-var boxTwo = document.getElementById('div2');
-var boxThree = document.getElementById('div3');
-var boxFour = document.getElementById('div4');
-var boxMain = document.getElementById('divMain');
+var boxOne = document.getElementById( 'div1' );
+var boxTwo = document.getElementById( 'div2' );
+var boxThree = document.getElementById( 'div3' );
+var boxFour = document.getElementById( 'div4' );
+var boxMain = document.getElementById( 'divMain' );
 
 var tempColor;
 var playerScore = 0;
 var tempTextValue;
 var progressBar;
 
-
-var getSpan = document.getElementById('wordcolors');
-
-
-
+var getSpan = document.getElementById( 'wordcolors' );
 var previousColor = boxMain.style.background;
 
 function getRandomColor() {
-
-
-  var colorWord = ['yellow','blue','green','purple','red'];
-  do{
-    var currentColor = colorWord[Math.floor(Math.random() * colorWord.length)];
+  var colorWord = [ 'yellow', 'blue', 'green', 'purple', 'red' ];
+  do {
+    var currentColor = colorWord[ Math.floor( Math.random() * colorWord.length ) ];
   }
-  while(previousColor === currentColor);
+  while ( previousColor === currentColor );
   previousColor = currentColor;
   return currentColor;
-
 }
-
-
 getRandomColor();
-
-
-
-
-
-
-
 
 var setBackgroundColor1 = function () {
   tempColor = boxMain.style.background;
@@ -90,8 +74,8 @@ var setTextValue4 = function () {
 };
 
 
-function handleStart ( event ) {
-  switch ( event.target.id) {
+function handleStart( event ) {
+  switch ( event.target.id ) {
   case 'start':
     getSpan.textContent = getRandomColor();
 
@@ -100,74 +84,66 @@ function handleStart ( event ) {
 
 function handleClick( event ) {
   switch ( event.target.id ) {
+  // Functionality for 'boxOne' element.
   case 'div1':
-    if(getSpan.textContent.toLowerCase() !== boxOne.style.background.toLowerCase()){
-      console.log(getSpan.textContent);
-      console.log(boxOne.style.background);
-      alert('Nice try!');
+    if ( getSpan.textContent.toLowerCase() !== boxOne.style.background.toLowerCase() ) {
+      console.log( getSpan.textContent );
+      console.log( boxOne.style.background );
+      alert( 'Nice try!' );
     }
     setBackgroundColor1();
     setTextValue1();
-
     getSpan.textContent = getRandomColor();
 
-
-
-    if (progressBar) {
-      clearInterval(progressBar);
+    if ( progressBar ) {
+      clearInterval( progressBar );
     }
     progressBar = timer();
     playerScore++;
     break;
+  // Functionality for 'boxTwo' element.
   case 'div2':
-    if(getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase()){
-      console.log(getSpan.textContent);
-      console.log(boxTwo.style.background);
-      alert('Nice try!');
+    if ( getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase() ) {
+      console.log( getSpan.textContent );
+      console.log( boxTwo.style.background );
+      alert( 'Nice try!' );
     }
     setBackgroundColor2();
     setTextValue2();
     getSpan.textContent = getRandomColor();
 
-
-    if (progressBar) {
-      clearInterval(progressBar);
+    if ( progressBar ) {
+      clearInterval( progressBar );
     }
     progressBar = timer();
     playerScore++;
     break;
+  // Functionality for 'boxThree' element.
   case 'div3':
-    if(getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase()){
-      console.log(getSpan.textContent);
-      console.log(boxThree.style.background);
-      alert('Nice try!');
+    if ( getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase() ) {
+      alert( 'Nice try!' );
     }
     setBackgroundColor3();
     setTextValue3();
     getSpan.textContent = getRandomColor();
 
-
-    if (progressBar) {
-      clearInterval(progressBar);
+    if ( progressBar ) {
+      clearInterval( progressBar );
     }
     progressBar = timer();
     playerScore++;
     break;
+  // Functionality for 'boxFour' element.
   case 'div4':
-    if(getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase()){
-      console.log(getSpan.textContent);
-      console.log(boxFour.style.background);
-      alert('Nice try!');
+    if ( getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase() ) {
+      alert( 'Nice try!' );
     }
     setBackgroundColor4();
     setTextValue4();
     getSpan.textContent = getRandomColor();
-    // console.log(getSpan.textContent);
-    // console.log(boxFour.style.background);
 
-
-    if (progressBar) {
-      clearInterval(progressBar);
+    if ( progressBar ) {
+      clearInterval( progressBar );
     }
     progressBar = timer();
     playerScore++;
@@ -176,31 +152,30 @@ function handleClick( event ) {
   getScore.textContent = playerScore;
 }
 
-var getScore = document.getElementById('player-score');
-var startGame = document.getElementById('start');
+var getScore = document.getElementById( 'player-score' );
+var startGame = document.getElementById( 'start' );
 
-startGame.addEventListener('click', handleStart);
+startGame.addEventListener( 'click', handleStart );
 boxOne.addEventListener( 'click', handleClick );
 boxTwo.addEventListener( 'click', handleClick );
 boxThree.addEventListener( 'click', handleClick );
-boxFour.addEventListener( 'click', handleClick);
+boxFour.addEventListener( 'click', handleClick );
 
-//timer
 
+// Progress bar/timer functionality.
 function timer() {
-  var elem = document.getElementById('myBar');
+  var elem = document.getElementById( 'myBar' );
   var width = 20;
-  var id = setInterval(frame, 60);
+  var id = setInterval( frame, 60 );
   function frame() {
-    if (width >= 100){
-      alert('Game Over!');
-      clearInterval(id);
+    if ( width >= 100 ) {
+      alert( 'Game Over!' );
+      clearInterval( id );
 
     } else {
       width++;
       elem.style.width = width + '%';
-      //elem.innerHTML = width * 1  + '%';
-      elem.innerHTML = 'YOU WILL FAIL';
+      elem.innerHTML;
     }
   }
   return id;
