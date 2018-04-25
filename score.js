@@ -1,56 +1,53 @@
 'use strict';
 
+var score = 0;
+var highscore = 0;
 leaderBoardScores = [];
 
 
-function updateLeaderboardView(score, name) {
+
+function LeaderboardView(score, name) {
   this.score = score;
   this.name = name;
-  this.numberOfTimesRight = 0;
   leaderBoardScores.push(this);
-}
-new leaderBoardScores(firstPlayerScore, 'player-1')
-new leaderBoardScores(secondPlayerScore, 'player-2')
-new leaderBoardScores(thirdPlayerScore, 'player-3')
-new leaderBoardScores(fourthPlayerScore, 'player-4')
-new leaderBoardScores(fifthPlayerScore, 'player-5')
 
-function populateCorrectAnswers() {}
+  new leaderBoardScores//I was thinking if there was some logic to 'push' local storage to the empty array
+  //stretch goal: Manipulate the scores with if condition statements to place player 1 on top.
 }
-  { name: 'Player-1', score: 0 },
-  { name: 'Player-2', score: 0 },
-  { name: 'Player-3', score: 0 },
-  { name: 'Player-4', score: 0 },
-  { name: 'Player-5', score: 0 },
-];
 
 function updateLeaderboardView() {
-  var leaderboard = document.getElementById( 'leaderboard' );
-  leaderboard.innerHTML = '';
+  var leaderboard = document.getElementsByClassName('leaderboard');
 
-  score.sort( function ( a, b ) { } );
-  var elements = []; // we'll need created elements to update colors later on
-  // create elements for each player
-  for ( var i = 0; i < score.length; i++ ) {
-    var name = document.createElementClass( 'div' );
-    var score = document.createElementClass( 'div' );
+  for (var i = 0; i < leaderBoardScores.length; i++) {
+    var name = document.getElementsByClassName('top3');
+    var score = document.getElementsByClassName('topScore');
 
   }
+    if (score > localStorage.getItem('highscore')) {
+      localStorage.setItem('highscore', score);
+    }
 
-  var colors = [ 'gold', 'silver', '#cd7f32' ];
-  for ( i = 0; i < 3; i++ ) {
-    elements[ i ].style.color = colors[ i ];
+    var currentScore = 0;
+    var highscore = localStorage.getItem('highscore');
+
+    if (highscore !== null) {
+      if (currentScore > highscore) {
+        localStorage.setItem('highscore', score);
+      }
+    }
+    else {
+      localStorage.setItem('highscore', score);
+    }
+  }
+
+
+
+
+  // work in progress
+  //snippet of code that involves color scheme to first 3 players.
+  //first place gets gold, second place gets silver, third place gets bronze.
+  var colors = ['gold', 'silver', '#cd7f32'];
+  for (i = 0; i < 3; i++) {
+    elements[i].style.color = colors[i];
   }
 }
-
-
-// Work 
-
-function randomize() {
-  for ( var i = 0; i < score.length; i++ ) {
-    score[ i ].score = Math.floor( Math.random() * score );
-  }
-  // when your data changes, call updateLeaderboardView
-  updateLeaderboardView();
-}
-randomize();
