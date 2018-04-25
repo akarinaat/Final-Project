@@ -21,7 +21,6 @@ document.getElementById('playerForm').addEventListener('submit', savePlayer);
 function savePlayer(e){
   // Get form values
   var playerName =document.getElementById('player-name').value;
-  //var playerSavedScore =document.getElementById('player-score').value;
 
   //validation
   if(!validateForm(playerName, playerScore)){
@@ -31,7 +30,6 @@ function savePlayer(e){
   var player = {
     name: playerName,
     score: playerScore,
-    //playerSavedScore,
   };
 
   // checks if players is empty
@@ -138,8 +136,6 @@ function getRandomStart() {
 }
 
 
-
-
 getRandomColor();
 
 var setBackgroundColor1 = function () {
@@ -202,69 +198,81 @@ function handleClick( event ) {
   switch ( event.target.id ) {
   case 'div1':
     if(getSpan.textContent.toLowerCase() !== boxOne.style.background.toLowerCase()){
-      console.log(getSpan.textContent);
-      console.log(boxOne.style.background);
-      alert('Nice try!');
-    }
-    setBackgroundColor1();
-    setTextValue1();
-    getSpan.textContent = getRandomColor();
-    if (progressBar) {
-      clearInterval(progressBar);
-    }
-    progressBar = timer();
-    playerScore++;
-    break;
+      if (progressBar){
+        clearInterval(progressBar);
+      }
+      progressBar = timer (100);
+    } else{
+      setBackgroundColor1();
+      setTextValue1();
+      getSpan.textContent = getRandomColor();
+      if (progressBar){
+        clearInterval(progressBar);
+      }
+      progressBar = timer(20);
+      playerScore++;
 
+    }
+    break;
 
   case 'div2':
     if(getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase()){
-      console.log(getSpan.textContent);
-      console.log(boxTwo.style.background);
-      alert('Nice try!');
-    }
-    setBackgroundColor2();
-    setTextValue2();
-    getSpan.textContent = getRandomColor();
-    if (progressBar) {
-      clearInterval(progressBar);
-    }
-    progressBar = timer();
-    playerScore++;
-    break;
+      if (progressBar){
+        clearInterval(progressBar);
+      }
+      progressBar = timer (100);
 
+    } else {
+      setBackgroundColor2();
+      setTextValue2();
+      getSpan.textContent = getRandomColor();
+      if (progressBar){
+        clearInterval(progressBar);
+      }
+      progressBar = timer(20);
+      playerScore++;
+
+    }
+
+    break;
 
   case 'div3':
     if(getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase()){
-      console.log(getSpan.textContent);
-      console.log(boxThree.style.background);
-      alert('Nice try!');
+      if (progressBar){
+        clearInterval(progressBar);
+      }
+      progressBar = timer (100);
+    } else {
+      setBackgroundColor3();
+      setTextValue3();
+      getSpan.textContent = getRandomColor();
+      if (progressBar){
+        clearInterval(progressBar);
+      }
+      progressBar = timer(20);
+      playerScore++;
     }
-    setBackgroundColor3();
-    setTextValue3();
-    getSpan.textContent = getRandomColor();
-    if (progressBar) {
-      clearInterval(progressBar);
-    }
-    progressBar = timer();
-    playerScore++;
-    break;
 
+    break;
 
   case 'div4':
     if(getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase()){
-      console.log(getSpan.textContent);
-      console.log(boxFour.style.background);
-      alert('Nice try!');
+      if (progressBar){
+        clearInterval(progressBar);
+      }
+      progressBar = timer (100);
+
+    } else {
+      setBackgroundColor4();
+      setTextValue4();
+      getSpan.textContent = getRandomColor();
+      if (progressBar){
+        clearInterval(progressBar);
+      }
+      progressBar = timer(20);
+      playerScore++;
     }
-    setBackgroundColor4();
-    setTextValue4();
-    getSpan.textContent = getRandomColor();
-    if (progressBar) {
-      clearInterval(progressBar);
-    }
-    progressBar = timer();
-    playerScore++;
+
     break;
   }
   getScore.textContent = playerScore;
@@ -282,9 +290,9 @@ boxFour.addEventListener( 'click', handleClick);
 
 //timer
 
-function timer() {
+
+function timer(width) {
   var elem = document.getElementById('myBar');
-  var width = 20;
   var id = setInterval(frame, 40);
   function frame() {
     if (width >= 100){
@@ -294,14 +302,11 @@ function timer() {
     } else {
       width++;
       elem.style.width = width + '%';
-      //elem.innerHTML = width * 1  + '%';
       elem.innerHTML = 'YOU WILL FAIL';
     }
   }
   return id;
 }
-
-
 
 
 
