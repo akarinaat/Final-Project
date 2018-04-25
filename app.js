@@ -1,10 +1,10 @@
 'use strict';
 
-var boxOne = document.getElementById( 'div1' );
-var boxTwo = document.getElementById( 'div2' );
-var boxThree = document.getElementById( 'div3' );
-var boxFour = document.getElementById( 'div4' );
-var boxMain = document.getElementById( 'divMain' );
+var boxOne = document.getElementById('div1');
+var boxTwo = document.getElementById('div2');
+var boxThree = document.getElementById('div3');
+var boxFour = document.getElementById('div4');
+var boxMain = document.getElementById('divMain');
 
 var tempColor;
 var playerScore = 0;
@@ -205,4 +205,5 @@ function timer() {
   }
   return id;
 }
+
 
