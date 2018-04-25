@@ -1,6 +1,22 @@
 'use strict';
 
-score = [
+leaderBoardScores = [];
+
+
+function updateLeaderboardView(score, name) {
+  this.score = score;
+  this.name = name;
+  this.numberOfTimesRight = 0;
+  leaderBoardScores.push(this);
+}
+new leaderBoardScores(firstPlayerScore, 'player-1')
+new leaderBoardScores(secondPlayerScore, 'player-2')
+new leaderBoardScores(thirdPlayerScore, 'player-3')
+new leaderBoardScores(fourthPlayerScore, 'player-4')
+new leaderBoardScores(fifthPlayerScore, 'player-5')
+
+function populateCorrectAnswers() {}
+}
   { name: 'Player-1', score: 0 },
   { name: 'Player-2', score: 0 },
   { name: 'Player-3', score: 0 },
