@@ -112,23 +112,27 @@ a:hover {
 #player-score {
   width: 2em;
   text-align: center;
-  position: relative;
-  bottom: .3em;
+  position: absolute;
+  top: .45em;
   font-size: 4em;
-  right: .6em;
+  right: 2.25em;
 }
 
 #start {
   font-family: 'Gugi';
   position: absolute;
-  right: 54.2em;
-  top: 11.4em;
+  right: 16em;
+  top: 11.45em;
   border: none;
   padding: 1em;
   border-radius: 0.3em;
   font-size: .7em;
   background: red;
   color: white;
+}
+
+#start:hover {
+  background: rgb(255, 49, 49);
 }
 
 #submit {
@@ -158,21 +162,16 @@ a:hover {
 }
 
 #playerForm {
-  border-bottom-left-radius: .3em;
-  border-top-left-radius: .3em;
-  position: relative;
-  float: right;
+  border-radius: .3em;
+  position: absolute;
+  top: 5.3em;
+  left: 10.35em;
   background: rgb(97, 97, 97);
-  margin-top: 2.2em;
   height: 5em;
 }
 
 .playerFormScore {
   margin: 0 auto;
-}
-
-#start:hover {
-  background: rgb(255, 49, 49);
 }
 
 .row {
@@ -185,20 +184,19 @@ section > h2 {
 }
 
 #js-instructions {
-  font-family: 'Archivo Narrow';
-  width: 8em;
-  font-size: 1.2em;
-  position: relative;
-  top: -3.3em;
-  left: 6.52em;
-  text-align: left;
-  display: inline-block;
+    font-family: 'Archivo Narrow';
+    width: 8em;
+    font-size: 1.2em;
+    position: relative;
+    top: 3em;
+    left: 11em;
+    text-align: left;
+    display: inline-block;
 }
 
 #wordcolors {
   display: inline-block;
   visibility: visible;
-  color: red;
 }
 
 #score {
