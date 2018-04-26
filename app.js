@@ -330,9 +330,6 @@ function handleClick( event ) {
   getScore.textContent = playerScore;
 }
 
-
-
-
 startGame.addEventListener( 'click', handleStart );
 boxOne.addEventListener( 'click', handleClick );
 boxTwo.addEventListener( 'click', handleClick );
