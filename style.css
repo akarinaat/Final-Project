@@ -49,7 +49,7 @@ p {
   position: absolute;
   left: 1.5em;
   background: none;
-  color: red;
+  color: rgba(32, 32, 32, 0.938);
 }
 
 nav ul {
