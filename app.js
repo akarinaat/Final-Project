@@ -189,7 +189,7 @@ function handleStart( event ) {
     case 'start':
       playerScore = 0;
       getScore.textContent = 0;
-      speedTimer = 60;
+      speedTimer = 65;
       resetBoxes();
       progressBar = timer( 0 );
       startGame.removeEventListener( 'click', handleStart );
@@ -254,6 +254,7 @@ function handleClick( event ) {
         messageStart.style.display = 'none';
         messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
       } else {
         setBackgroundColor2();
@@ -283,6 +284,7 @@ function handleClick( event ) {
         messageStart.style.display = 'none';
         messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
       } else {
         setBackgroundColor3();
@@ -312,6 +314,7 @@ function handleClick( event ) {
         messageStart.style.display = 'none';
         messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
       } else {
         setBackgroundColor4();
@@ -336,7 +339,7 @@ boxTwo.addEventListener( 'click', handleClick );
 boxThree.addEventListener( 'click', handleClick );
 boxFour.addEventListener( 'click', handleClick );
 
-var speedTimer = 60;
+var speedTimer = 65;
 var displayBar = document.getElementById( 'myBar' );
 function timer( width ) {
   var id = setInterval( frame, speedTimer );
