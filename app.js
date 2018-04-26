@@ -196,6 +196,7 @@ function handleStart( event ) {
       speedTimer = 60;
       resetBoxes();
       startGame.removeEventListener( 'click', handleStart );
+      displayBar.style.display = 'block';
       boxOne.addEventListener( 'click', handleClick );
       boxTwo.addEventListener( 'click', handleClick );
       boxThree.addEventListener( 'click', handleClick );
@@ -240,10 +241,12 @@ function handleClick( event ) {
           clearInterval( progressBar );
         }
         // Turn off buttons after fail.
+        startGame.addEventListener( 'click', handleStart );
         boxOne.removeEventListener( 'click', handleClick );
         boxTwo.removeEventListener( 'click', handleClick );
         boxThree.removeEventListener( 'click', handleClick );
         boxFour.removeEventListener( 'click', handleClick );
+        displayBar.style.display = 'none';
         progressBar = timer( 100 );
       } else {
         setBackgroundColor2();
@@ -264,10 +267,12 @@ function handleClick( event ) {
           clearInterval( progressBar );
         }
         // Turn off buttons after fail.
+        startGame.addEventListener( 'click', handleStart );
         boxOne.removeEventListener( 'click', handleClick );
         boxTwo.removeEventListener( 'click', handleClick );
         boxThree.removeEventListener( 'click', handleClick );
         boxFour.removeEventListener( 'click', handleClick );
+        displayBar.style.display = 'none';
         progressBar = timer( 100 );
       } else {
         setBackgroundColor3();
@@ -288,10 +293,12 @@ function handleClick( event ) {
           clearInterval( progressBar );
         }
         // Turn off buttons after fail.
+        startGame.addEventListener( 'click', handleStart );
         boxOne.removeEventListener( 'click', handleClick );
         boxTwo.removeEventListener( 'click', handleClick );
         boxThree.removeEventListener( 'click', handleClick );
         boxFour.removeEventListener( 'click', handleClick );
+        displayBar.style.display = 'none';
         progressBar = timer( 100 );
       } else {
         setBackgroundColor4();
