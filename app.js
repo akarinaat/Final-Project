@@ -114,7 +114,13 @@ function getRandomColor() {
   while ( previousColor === currentColor );
   previousColor = currentColor;
   return currentColor;
+}
 
+// Randomize display color of span textContent.
+function getSpanColor() {
+  var colorWord = [ 'yellow', 'blue', 'green', 'purple', 'red' ];
+  var currentColor = colorWord[ Math.floor( Math.random() * colorWord.length ) ];
+  getSpan.style.color = currentColor;
 }
 
 var previousStart;
@@ -203,6 +209,7 @@ function handleStart( event ) {
       messageStart.style.display = 'inline-block';
       messageEnd.style.display = 'inline-block';
       getSpan.style.visibility = 'visible';
+      getSpanColor();
       getSpan.textContent = getRandomStart();
   }
 }
@@ -230,6 +237,8 @@ function handleClick( event ) {
       } else {
         setBackgroundColor1();
         setTextValue1();
+        // Function to randomize textContent span color.
+        getSpanColor();
         getSpan.textContent = getRandomColor();
         speedTimer -= 2;
         if ( progressBar ) {
@@ -260,6 +269,8 @@ function handleClick( event ) {
       } else {
         setBackgroundColor2();
         setTextValue2();
+        // Function to randomize textContent span color.
+        getSpanColor();
         getSpan.textContent = getRandomColor();
         speedTimer -= 2;
         if ( progressBar ) {
@@ -290,6 +301,8 @@ function handleClick( event ) {
       } else {
         setBackgroundColor3();
         setTextValue3();
+        // Function to randomize textContent span color.
+        getSpanColor();
         getSpan.textContent = getRandomColor();
         speedTimer -= 2;
         if ( progressBar ) {
@@ -320,6 +333,8 @@ function handleClick( event ) {
       } else {
         setBackgroundColor4();
         setTextValue4();
+        // Function to randomize textContent span color.
+        getSpanColor();
         getSpan.textContent = getRandomColor();
         speedTimer -= 2;
         if ( progressBar ) {
@@ -346,7 +361,32 @@ function timer( width ) {
   var id = setInterval( frame, speedTimer );
   function frame() {
     if ( width >= 100 ) {
-      alert( 'Game Over!' );
+
+
+
+
+      startGame.addEventListener( 'click', handleStart );
+      boxOne.removeEventListener( 'click', handleClick );
+      boxTwo.removeEventListener( 'click', handleClick );
+      boxThree.removeEventListener( 'click', handleClick );
+      boxFour.removeEventListener( 'click', handleClick );
+      // Set game to fail state.
+      displayBar.style.visibility = 'hidden';
+      messageStart.style.display = 'none';
+      messageEnd.style.display = 'none';
+      //progressBar = timer( 100 );
+      getSpan.style.visibility = 'hidden';
+      startGame.textContent = 'RETRY';
+
+
+
+
+
+
+
+
+
+
       clearInterval( id );
 
     } else {
@@ -355,6 +395,7 @@ function timer( width ) {
     }
   }
   return id;
+
 }
 
 
