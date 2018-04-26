@@ -67,6 +67,16 @@ nav ul li {
   display: inline-block;
   list-style-type: none;
   text-transform: uppercase;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgb(179, 179, 179);
 }
 
 #myProgress {
@@ -74,6 +84,14 @@ nav ul li {
   margin: 0 auto;
   width: 18em;
   background-color: #ddd;
+}
+
+.results-hidden {
+  display: none
+}
+
+.player-info-hidden {
+  display: none;
 }
 
 #myBar {
@@ -113,6 +131,46 @@ nav ul li {
   color: white;
 }
 
+#submit {
+  border: none;
+  padding: 1em;
+  border-radius: .3em;
+  position: absolute;
+  left: 1.3em;
+  top: 5em;
+  font-family: 'Gugi';
+  text-transform: uppercase;
+  background: red;
+  color: rgb(255,255,255);
+  box-shadow: inset 0px 0px 0.25em 0.055em rgba(0, 0, 0, 0.55);
+}
+
+#player-name {
+  margin: 1em;
+  font-family: 'Archivo Narrow';
+  font-size: .7em;
+  text-align: center;
+  border-radius: .3em;
+  border: none;
+  padding: .4em;
+  text-transform: uppercase;
+  box-shadow: inset 0px 0px 0.25em 0.055em rgba(0, 0, 0, 0.329);
+}
+
+#playerForm {
+  border-bottom-left-radius: .3em;
+  border-top-left-radius: .3em;
+  position: relative;
+  float: right;
+  background: rgb(97, 97, 97);
+  margin-top: 2.2em;
+  height: 5em;
+}
+
+.playerFormScore {
+  margin: 0 auto;
+}
+
 #start:hover {
   background: rgb(255, 49, 49);
 }
@@ -128,10 +186,10 @@ section > h2 {
 
 #js-instructions {
   font-family: 'Archivo Narrow';
-  width: 15em;
+  width: 8em;
   font-size: 1.2em;
   position: relative;
-  top: -2.3em;
+  top: -3.3em;
   left: 6.52em;
   text-align: left;
   display: inline-block;
@@ -151,6 +209,7 @@ section > h2 {
   background: rgba(32, 32, 32, 0.938);
   box-shadow: inset 0px 0px 0.125em 0.015em rgba(0, 0, 0, 0.55);
 }
+
 .row {
   display: flex;
   justify-content: space-evenly;
@@ -215,32 +274,27 @@ div.game {
 
 #divMain, #div1, #div2, #div3, #div4 {
   border: solid white .05em;
-  
 }
 
-img{
-    margin-left: 20px;
-    width: 340px;
-    height: 340px;
-  }
+img {
+  margin-left: 20px;
+  width: 340px;
+  height: 340px;
+}
      
-  #sectioned .text{
-    
-    border: 1px solid transparent;
-    width: 350px;
-    height: 360px;
-    display: inline-block;
-    overflow: scroll;
-    margin-left: 30px;
-    margin-bottom: 0px;
-    vertical-align: 1em;
-    
-  }
-  
-  .text{
-    transform: translate(0,20%);
-    font-family: 'Archivo Narrow';
-    
-  
-  }
+#sectioned .text {
+  border: 1px solid transparent;
+  width: 350px;
+  height: 360px;
+  display: inline-block;
+  overflow: scroll;
+  margin-left: 30px;
+  margin-bottom: 0px;
+  vertical-align: 1em;
+}
+
+.text {
+  transform: translate(0,20%);
+  font-family: 'Archivo Narrow';
+}
 
