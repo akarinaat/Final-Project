@@ -150,6 +150,8 @@ div.game {
 
 img{
     margin-left: 20px;
+    width: 340px;
+    height: 340px;
   }
      
   #sectioned .text{
@@ -166,7 +168,9 @@ img{
   }
   
   .text{
-    transform: translate(0,7%);
+    transform: translate(0,20%);
+    font-family: 'Archivo Narrow';
+    
   
   }
 
