@@ -5,6 +5,11 @@ var boxTwo = document.getElementById( 'div2' );
 var boxThree = document.getElementById( 'div3' );
 var boxFour = document.getElementById( 'div4' );
 var boxMain = document.getElementById( 'divMain' );
+var getSpan = document.getElementById( 'wordcolors' );
+var messageStart = document.getElementById( 'message-start' );
+var messageEnd = document.getElementById( 'message-end' );
+var getScore = document.getElementById( 'player-score' );
+var startGame = document.getElementById( 'start' );
 
 var tempColor;
 var playerScore = 0;
@@ -99,9 +104,6 @@ function validateForm( playerName, playerScore ) {
 
   return true;
 }
-///end changes on tue
-
-var getSpan = document.getElementById( 'wordcolors' );
 
 function getRandomColor() {
   var previousColor = boxMain.style.background;
@@ -117,7 +119,7 @@ function getRandomColor() {
   return currentColor;
 
 }
-//new
+
 var previousStart;
 function getRandomStart() {
   var previousColor = boxMain.style.background;
@@ -188,123 +190,127 @@ var setTextValue4 = function () {
 
 function handleStart( event ) {
   switch ( event.target.id ) {
-  case 'start':
-    playerScore = 0;
-    getScore.textContent = 0;
-    speedTimer = 60;
-    resetBoxes();
-    boxOne.addEventListener( 'click', handleClick );
-    boxTwo.addEventListener( 'click', handleClick );
-    boxThree.addEventListener( 'click', handleClick );
-    boxFour.addEventListener( 'click', handleClick );
-    getSpan.textContent = getRandomStart();
+    case 'start':
+      playerScore = 0;
+      getScore.textContent = 0;
+      speedTimer = 60;
+      resetBoxes();
+      startGame.removeEventListener( 'click', handleStart );
+      boxOne.addEventListener( 'click', handleClick );
+      boxTwo.addEventListener( 'click', handleClick );
+      boxThree.addEventListener( 'click', handleClick );
+      boxFour.addEventListener( 'click', handleClick );
+      messageStart.style.display = 'inline-block';
+      messageEnd.style.display = 'inline-block';
+      getSpan.textContent = getRandomStart();
   }
 }
 
 function handleClick( event ) {
   switch ( event.target.id ) {
-  case 'div1':
-    if ( getSpan.textContent.toLowerCase() !== boxOne.style.background.toLowerCase() ) {
-      if ( progressBar ) {
-        clearInterval( progressBar );
+    case 'div1':
+      if ( getSpan.textContent.toLowerCase() !== boxOne.style.background.toLowerCase() ) {
+        if ( progressBar ) {
+          clearInterval( progressBar );
+        }
+        // Turn off buttons after fail.
+        startGame.addEventListener( 'click', handleStart );
+        boxOne.removeEventListener( 'click', handleClick );
+        boxTwo.removeEventListener( 'click', handleClick );
+        boxThree.removeEventListener( 'click', handleClick );
+        boxFour.removeEventListener( 'click', handleClick );
+        displayBar.style.display = 'none';
+        progressBar = timer( 100 );
+      } else {
+        setBackgroundColor1();
+        setTextValue1();
+        getSpan.textContent = getRandomColor();
+        speedTimer -= 2;
+        if ( progressBar ) {
+          clearInterval( progressBar );
+        }
+        progressBar = timer( 20 );
+        playerScore++;
       }
-      // Turn off buttons after fail.
-      boxOne.removeEventListener( 'click', handleClick );
-      boxTwo.removeEventListener( 'click', handleClick );
-      boxThree.removeEventListener( 'click', handleClick );
-      boxFour.removeEventListener( 'click', handleClick );
-      progressBar = timer( 100 );
-    } else {
-      setBackgroundColor1();
-      setTextValue1();
-      getSpan.textContent = getRandomColor();
-      speedTimer -= 2;
-      if ( progressBar ) {
-        clearInterval( progressBar );
-      }
-      progressBar = timer( 20 );
-      playerScore++;
-    }
-    break;
+      break;
 
-  case 'div2':
-    if ( getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase() ) {
-      if ( progressBar ) {
-        clearInterval( progressBar );
+    case 'div2':
+      if ( getSpan.textContent.toLowerCase() !== boxTwo.style.background.toLowerCase() ) {
+        if ( progressBar ) {
+          clearInterval( progressBar );
+        }
+        // Turn off buttons after fail.
+        boxOne.removeEventListener( 'click', handleClick );
+        boxTwo.removeEventListener( 'click', handleClick );
+        boxThree.removeEventListener( 'click', handleClick );
+        boxFour.removeEventListener( 'click', handleClick );
+        progressBar = timer( 100 );
+      } else {
+        setBackgroundColor2();
+        setTextValue2();
+        getSpan.textContent = getRandomColor();
+        speedTimer -= 2;
+        if ( progressBar ) {
+          clearInterval( progressBar );
+        }
+        progressBar = timer( 20 );
+        playerScore++;
       }
-      // Turn off buttons after fail.
-      boxOne.removeEventListener( 'click', handleClick );
-      boxTwo.removeEventListener( 'click', handleClick );
-      boxThree.removeEventListener( 'click', handleClick );
-      boxFour.removeEventListener( 'click', handleClick );
-      progressBar = timer( 100 );
-    } else {
-      setBackgroundColor2();
-      setTextValue2();
-      getSpan.textContent = getRandomColor();
-      speedTimer -= 2;
-      if ( progressBar ) {
-        clearInterval( progressBar );
-      }
-      progressBar = timer( 20 );
-      playerScore++;
-    }
-    break;
+      break;
 
-  case 'div3':
-    if ( getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase() ) {
-      if ( progressBar ) {
-        clearInterval( progressBar );
+    case 'div3':
+      if ( getSpan.textContent.toLowerCase() !== boxThree.style.background.toLowerCase() ) {
+        if ( progressBar ) {
+          clearInterval( progressBar );
+        }
+        // Turn off buttons after fail.
+        boxOne.removeEventListener( 'click', handleClick );
+        boxTwo.removeEventListener( 'click', handleClick );
+        boxThree.removeEventListener( 'click', handleClick );
+        boxFour.removeEventListener( 'click', handleClick );
+        progressBar = timer( 100 );
+      } else {
+        setBackgroundColor3();
+        setTextValue3();
+        getSpan.textContent = getRandomColor();
+        speedTimer -= 2;
+        if ( progressBar ) {
+          clearInterval( progressBar );
+        }
+        progressBar = timer( 20 );
+        playerScore++;
       }
-      // Turn off buttons after fail.
-      boxOne.removeEventListener( 'click', handleClick );
-      boxTwo.removeEventListener( 'click', handleClick );
-      boxThree.removeEventListener( 'click', handleClick );
-      boxFour.removeEventListener( 'click', handleClick );
-      progressBar = timer( 100 );
-    } else {
-      setBackgroundColor3();
-      setTextValue3();
-      getSpan.textContent = getRandomColor();
-      speedTimer -= 2;
-      if ( progressBar ) {
-        clearInterval( progressBar );
-      }
-      progressBar = timer( 20 );
-      playerScore++;
-    }
-    break;
+      break;
 
-  case 'div4':
-    if ( getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase() ) {
-      if ( progressBar ) {
-        clearInterval( progressBar );
+    case 'div4':
+      if ( getSpan.textContent.toLowerCase() !== boxFour.style.background.toLowerCase() ) {
+        if ( progressBar ) {
+          clearInterval( progressBar );
+        }
+        // Turn off buttons after fail.
+        boxOne.removeEventListener( 'click', handleClick );
+        boxTwo.removeEventListener( 'click', handleClick );
+        boxThree.removeEventListener( 'click', handleClick );
+        boxFour.removeEventListener( 'click', handleClick );
+        progressBar = timer( 100 );
+      } else {
+        setBackgroundColor4();
+        setTextValue4();
+        getSpan.textContent = getRandomColor();
+        speedTimer -= 2;
+        if ( progressBar ) {
+          clearInterval( progressBar );
+        }
+        progressBar = timer( 20 );
+        playerScore++;
       }
-      // Turn off buttons after fail.
-      boxOne.removeEventListener( 'click', handleClick );
-      boxTwo.removeEventListener( 'click', handleClick );
-      boxThree.removeEventListener( 'click', handleClick );
-      boxFour.removeEventListener( 'click', handleClick );
-      progressBar = timer( 100 );
-    } else {
-      setBackgroundColor4();
-      setTextValue4();
-      getSpan.textContent = getRandomColor();
-      speedTimer -= 2;
-      if ( progressBar ) {
-        clearInterval( progressBar );
-      }
-      progressBar = timer( 20 );
-      playerScore++;
-    }
-    break;
+      break;
   }
   // Total score after game is finished.
   getScore.textContent = playerScore;
 }
 
-var getScore = document.getElementById( 'player-score' );
-var startGame = document.getElementById( 'start' );
+
 
 
 startGame.addEventListener( 'click', handleStart );
@@ -313,11 +319,9 @@ boxTwo.addEventListener( 'click', handleClick );
 boxThree.addEventListener( 'click', handleClick );
 boxFour.addEventListener( 'click', handleClick );
 
-//timer
 var speedTimer = 60;
-
+var displayBar = document.getElementById( 'myBar' );
 function timer( width ) {
-  var elem = document.getElementById( 'myBar' );
   var id = setInterval( frame, speedTimer );
   function frame() {
     if ( width >= 100 ) {
@@ -326,7 +330,7 @@ function timer( width ) {
 
     } else {
       width++;
-      elem.style.width = width + '%';
+      displayBar.style.width = width + '%';
     }
   }
   return id;
