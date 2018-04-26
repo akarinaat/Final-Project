@@ -50,6 +50,7 @@ function savePlayer( e ) {
 
     // Add new player to array.
     players.unshift( player );
+    players.sort( ( a, b ) => Number( b.score ) - Number( a.score ) );
 
     // Save updated array to local storage.
     localStorage.setItem( 'players', JSON.stringify( players ) );
@@ -82,7 +83,7 @@ function fetchPlayers() {
     var name = players[ i ].name;
     var score = players[ i ].score;
 
-    savedPlayersResults.innerHTML += '<p> Players Name: ' + name + '  ,  Score: ' + score + '</p>';
+    savedPlayersResults.innerHTML += '<p> Player: ' + name + '  ,  Score: ' + score + '</p>';
 
   }
 

@@ -1,4 +1,3 @@
-
 *:focus {
   outline: 0;
 }
@@ -33,13 +32,8 @@ header {
   box-shadow: 0px 0px 0.125em 0.015em rgba(0, 0, 0, 0.55);
 }
 
-h1 {
-  font-size: 1.5em;
-  margin: 0;
-}
-
 p {
-  margin: 0;
+    margin: .7em;
 }
 
 #ernie-logo {
@@ -68,28 +62,34 @@ nav ul li {
   display: inline-block;
   list-style-type: none;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
-#myProgress {
-  border-radius: .3em;
-  margin: 0 auto;
-  width: 18em;
-  background-color: #ddd;
-}
-
-#myBar {
-  border-top-left-radius: .3em;
-  border-bottom-left-radius: .3em;
-  width: 10%;
-  height: 1.5em;
-  background-color: red;
-  text-align: center;
-  line-height: 2em;
+a {
+  text-decoration: none;
   color: white;
 }
 
-#progressBar {
-  margin: 2rem auto;
+a:hover {
+  color: rgb(179, 179, 179);
+}
+
+h1 {
+  text-align: center;
+  width: 7em;
+  text-transform: uppercase;
+  color: rgb(179, 179, 179);
+  font-size: 1.5em;
+  margin: 0 auto;
+  padding: .6em;
+}
+
+.results-hidden {
+  display: none
+}
+
+.player-info-hidden {
+  display: none;
 }
 
 #player-score {
@@ -101,121 +101,23 @@ nav ul li {
   right: .6em;
 }
 
-#start {
-  font-family: 'Gugi';
-  position: absolute;
-  right: 54.2em;
-  top: 11.4em;
-  border: none;
-  padding: 1em;
-  border-radius: 0.3em;
-  font-size: .7em;
-  background: red;
-  color: white;
+.playerFormScore {
+  margin: 0 auto;
 }
-
-#start:hover {
-  background: rgb(255, 49, 49);
-}
-
-.row {
-  display:flex;
- }
 
 section > h2 {
   margin-left: 1.5em;
   line-height: 8em;
 }
 
-#js-instructions {
-  font-family: 'Archivo Narrow';
-  width: 15em;
-  font-size: 1.2em;
-  position: relative;
-  top: -2.3em;
-  left: 6.52em;
-  text-align: left;
-  display: inline-block;
-}
-
-#wordcolors {
-  display: inline-block;
-  visibility: visible;
-  color: red;
-}
-
 #score {
+  padding: 1.5em;
+  margin: auto;
   color: rgba(255, 255, 255);
   text-transform: uppercase;
   height: 8em;
   text-align: left;
   background: rgba(32, 32, 32, 0.938);
   box-shadow: inset 0px 0px 0.125em 0.015em rgba(0, 0, 0, 0.55);
-}
-.row {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 1em auto;
-}
-
-div.game {
-    width: 17em;
-    margin: 0 auto;
-}
-
-.game div {
-  cursor: pointer;
-  border-radius: 1.3em;
+  width: 80%;
   text-align: center;
-  line-height: 1.3em;
-  color: white;
-  text-transform: uppercase;
-  font-size: 1.6em;
-  margin: .15em 0;
-  padding: .05em;
-}
-
-#div1 {
-  color: rgb(179, 179, 179);
-  width: 20%;
-  height: 20%;
-  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);  
-}
-
-#div1:hover {
-  background: rgb(81, 81, 255);
-}
-
-#div2 {
-  color: rgb(179, 179, 179);
-  width: 20%;
-  height: 20%;
-  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);  
-}
-
-#div3 {
-  color: rgb(179, 179, 179);
-  width: 20%;
-  height: 20%;
-  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55); 
-} 
-
-#div4 {
-  color: rgb(179, 179, 179);
-  width: 20%;
-  height: 20%;
-  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55); 
-}
-
-#divMain {
-  color: rgb(179, 179, 179);
-  width: 20%;
-  height: 20%;
-  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);   
-}
-
-#divMain, #div1, #div2, #div3, #div4 {
-  border: solid white .05em;
-  
-}
-

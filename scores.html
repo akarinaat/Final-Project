@@ -6,7 +6,7 @@
   <title>E.R.N.I.E.</title>
   <!-- Evil Robotic Numerical Index Emitter -->
   <link rel="stylesheet" type="text/css" media="screen" href="reset.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="score.css" />
   <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:700|Gugi" rel="stylesheet">
 
 </head>
@@ -28,16 +28,38 @@
       </ul>
     </nav>
   </header>
- <main>
-   
-      <div class="results">
-        <div id="savedPlayersResults"></div>
-    </form>
-    </div>
+  <main>
+    <h1>Leaderboard</h1>
+    <section id="score">
+      <form id="playerForm" class="playerFormScore">
+        <div class="player-info-hidden">
+          <input type="text" class="form-control" id="player-name" placeholder="Enter your name">
+          <button type="submit" id="submit">Submit</button>
+          <button id="start">START</button>
+          <div class="game">
+            <div class="row">
+              <div id="div1" style="background:Blue;">1</div>
+            </div>
 
-  
+            <div class="row">
+              <div id="div2" style="background:Red;">2</div>
+              <div id="divMain" style="background: Purple;">5</div>
+              <div id="div4" style="background:Green;">4</div>
+            </div>
+            <div class="row">
+              <div id="div3" style="background: Yellow;">3</div>
+            </div>
+
+          </div>
+        </div>
+        <div class="results">
+          <div id="savedPlayersResults"></div>
+      </form>
+      </div>
+
+    </section>
   </main>
-  
+
   <footer>
   </footer>
 
@@ -46,4 +68,3 @@
 <script src="app.js"></script>
 
 </html>
-
