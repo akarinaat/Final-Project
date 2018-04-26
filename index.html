@@ -5,39 +5,33 @@
   <meta charset="utf-8" />
   <title>E.R.N.I.E.</title>
   <!-- Evil Robotic Numerical Index Emitter -->
+  <link rel="stylesheet" type="text/css" media="screen" href="reset.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:700|Gugi" rel="stylesheet">
 
 </head>
 
 <body>
   <header>
     <nav>
+      <div id="ernie-logo">E R N I E</div>
       <ul>
         <li>Home</li>
+        <li>Play</li>
+        <li>About</li>
         <a href="about.html"><li>About</li></a>
         <a href="scores.html"><li>High Scores</li></a>
       </ul>
     </nav>
   </header>
   <main>
-    <section id="instructions">
-      <form id="playerForm">
-        <div class="player-info">
-          <label>Your Name</label>
-          <input type="text" class="form-control" id="player-name" placeholder="Enter you name">
-          <h2>Score
-            <span id="player-score"></span>
-          </h2>
-          <button type="submit" class="player info">Submit your Score</button>
-        </div>
-      </form>
-      <div>
+    <section id="score">
+      <h2><div align="center" id="player-score"></div></h2>
+      <div id="js-instructions">
         <h2 id="message-start" style="display: none;">Click on the </h2>
         <h2 id="wordcolors"></h2>
         <h2 id="message-end" style="display: none;"> button.</h2>
       </div>
-
       <button id="start">START</button>
     </section>
     <section id="progressBar">
@@ -63,8 +57,15 @@
     </div>
   </main>
   <footer>
-    <div class="results">
-      <div id="savedPlayersResults"></div>
+    <form id="playerForm">
+      <div class="player-info">
+        <label>Your Name</label>
+        <input type="text" class="form-control" id="player-name" placeholder="Enter your name">
+        <button type="submit" class="player info">Submit</button>
+      </div>
+      <div class="results">
+        <div id="savedPlayersResults"></div>
+    </form>
     </div>
   </footer>
 </body>

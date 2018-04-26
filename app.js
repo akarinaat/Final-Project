@@ -19,15 +19,15 @@ var progressBar;
 var players = [];
 
 fetchPlayers();
-// Listen for form submit
+// Listen for form submit.
 document.getElementById( 'playerForm' ).addEventListener( 'submit', savePlayer );
 
-// Save Player
+// Save new player.
 function savePlayer( e ) {
-  // Get form values
+  // Get values from form inputs.
   var playerName = document.getElementById( 'player-name' ).value;
 
-  //validation
+  // Run form validation.
   if ( !validateForm( playerName, playerScore ) ) {
     return false;
   }
@@ -37,40 +37,38 @@ function savePlayer( e ) {
     score: playerScore,
   };
 
-  // checks if players is empty
+  // Check for local storage.
   if ( localStorage.getItem( 'players' ) === null ) {
-    //init array
 
-    //add to array
+    // Add to new player to array.
     players.unshift( player );
-    //set to local storage
+    // Add player to local storage.
     localStorage.setItem( 'players', JSON.stringify( players ) );
   } else {
-    //get players from local storage
+    // Get array from local storage.
     players = JSON.parse( localStorage.getItem( 'players' ) );
 
-    //add player to array
+    // Add new player to array.
     players.unshift( player );
 
-    //re-set back to local storage
+    // Save updated array to local storage.
     localStorage.setItem( 'players', JSON.stringify( players ) );
 
   }
-  // Re-fetch players
+  // Fetch players.
   fetchPlayers();
   e.preventDefault();
 }
 
-// Fetch players
+// Fetch array from local storage.
 function fetchPlayers() {
-  // Get players from localStorage
   if ( localStorage.getItem( 'players' ) )
     players = JSON.parse( localStorage.getItem( 'players' ) );
-  console.log( players );
-  // Get output id
+
+  // Get output ID from HTML.
   var savedPlayersResults = document.getElementById( 'savedPlayersResults' );
 
-  // Build output clear
+  // Clear output field to prepare for rewrite.
   savedPlayersResults.innerHTML = '';
 
   var limit;
@@ -81,8 +79,6 @@ function fetchPlayers() {
   }
 
   for ( var i = 0; i < limit; i++ ) {
-
-    //players.length
     var name = players[ i ].name;
     var score = players[ i ].score;
 
@@ -90,12 +86,12 @@ function fetchPlayers() {
 
   }
 
-  // reset form
+  // Reset the form.
   document.getElementById( 'playerForm' ).reset();
   playerScore = 0;
 }
 
-// Validate Form
+// Validate the form.
 function validateForm( playerName, playerScore ) {
   if ( !playerName || !playerScore ) {
     alert( 'Please fill in the Name and start playing' );
@@ -193,16 +189,19 @@ function handleStart( event ) {
     case 'start':
       playerScore = 0;
       getScore.textContent = 0;
-      speedTimer = 60;
+      speedTimer = 65;
       resetBoxes();
+      progressBar = timer( 0 );
       startGame.removeEventListener( 'click', handleStart );
-      displayBar.style.display = 'block';
+      startGame.textContent = 'START';
+      displayBar.style.visibility = 'visible';
       boxOne.addEventListener( 'click', handleClick );
       boxTwo.addEventListener( 'click', handleClick );
       boxThree.addEventListener( 'click', handleClick );
       boxFour.addEventListener( 'click', handleClick );
       messageStart.style.display = 'inline-block';
       messageEnd.style.display = 'inline-block';
+      getSpan.style.visibility = 'visible';
       getSpan.textContent = getRandomStart();
   }
 }
@@ -220,8 +219,13 @@ function handleClick( event ) {
         boxTwo.removeEventListener( 'click', handleClick );
         boxThree.removeEventListener( 'click', handleClick );
         boxFour.removeEventListener( 'click', handleClick );
-        displayBar.style.display = 'none';
+        // Set game to fail state.
+        displayBar.style.visibility = 'hidden';
+        messageStart.style.display = 'none';
+        messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        getSpan.style.visibility = 'hidden';
+        startGame.textContent = 'RETRY';
       } else {
         setBackgroundColor1();
         setTextValue1();
@@ -246,8 +250,12 @@ function handleClick( event ) {
         boxTwo.removeEventListener( 'click', handleClick );
         boxThree.removeEventListener( 'click', handleClick );
         boxFour.removeEventListener( 'click', handleClick );
-        displayBar.style.display = 'none';
+        displayBar.style.visibility = 'hidden';
+        messageStart.style.display = 'none';
+        messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        getSpan.style.visibility = 'hidden';
+        startGame.textContent = 'RETRY';
       } else {
         setBackgroundColor2();
         setTextValue2();
@@ -272,8 +280,12 @@ function handleClick( event ) {
         boxTwo.removeEventListener( 'click', handleClick );
         boxThree.removeEventListener( 'click', handleClick );
         boxFour.removeEventListener( 'click', handleClick );
-        displayBar.style.display = 'none';
+        displayBar.style.visibility = 'hidden';
+        messageStart.style.display = 'none';
+        messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        getSpan.style.visibility = 'hidden';
+        startGame.textContent = 'RETRY';
       } else {
         setBackgroundColor3();
         setTextValue3();
@@ -298,8 +310,12 @@ function handleClick( event ) {
         boxTwo.removeEventListener( 'click', handleClick );
         boxThree.removeEventListener( 'click', handleClick );
         boxFour.removeEventListener( 'click', handleClick );
-        displayBar.style.display = 'none';
+        displayBar.style.visibility = 'hidden';
+        messageStart.style.display = 'none';
+        messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        getSpan.style.visibility = 'hidden';
+        startGame.textContent = 'RETRY';
       } else {
         setBackgroundColor4();
         setTextValue4();
@@ -317,16 +333,13 @@ function handleClick( event ) {
   getScore.textContent = playerScore;
 }
 
-
-
-
 startGame.addEventListener( 'click', handleStart );
 boxOne.addEventListener( 'click', handleClick );
 boxTwo.addEventListener( 'click', handleClick );
 boxThree.addEventListener( 'click', handleClick );
 boxFour.addEventListener( 'click', handleClick );
 
-var speedTimer = 60;
+var speedTimer = 65;
 var displayBar = document.getElementById( 'myBar' );
 function timer( width ) {
   var id = setInterval( frame, speedTimer );
