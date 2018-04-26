@@ -1,26 +1,219 @@
-/* a list of scores.html -kh*/
-#container {
-	width: 600px;
-	height: auto;
+*:focus {
+  outline: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: black;
+  font-size: 1.9vw;
+  font-family: 'Archivo Narrow';
+}
+
+nav {
+  background: linear-gradient(to right, rgb(71, 71, 71), rgb(17, 17, 17));
+}
+
+main {
+  background: linear-gradient(rgb(71, 71, 71), rgb(17, 17, 17));
+  height: 100%;
+  width: 65%;
+  margin: 0 auto;
+  padding-bottom: 1.4em;
+  box-shadow: inset 0px 0px 0.25em 0.055em rgba(0, 0, 0, 0.55);
+}
+
+header {
+  background: rgba(255, 255, 255, 0.589);
+  height: 3em;
+  box-shadow: 0px 0px 0.125em 0.015em rgba(0, 0, 0, 0.55);
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+#ernie-logo {
+  line-height: 3em;
+  text-transform: uppercase;
+  font-family: 'Gugi';
+  display: inline-block;
+  position: absolute;
+  left: 1.5em;
+  background: none;
+  color: rgba(32, 32, 32, 0.938);
+}
+
+nav ul {
+  font-family: 'Gugi';
+  display: flex;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  line-height: 3em;
+  width: 25rem;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+#myProgress {
+  border-radius: .3em;
+  margin: 0 auto;
+  width: 18em;
+  background-color: #ddd;
+}
+
+#myBar {
+  border-top-left-radius: .3em;
+  border-bottom-left-radius: .3em;
+  width: 10%;
+  height: 1.5em;
+  background-color: red;
+  text-align: center;
+  line-height: 2em;
+  color: white;
+}
+
+#progressBar {
+  margin: 2rem auto;
+}
+
+#player-score {
+  width: 2em;
+  text-align: center;
+  position: relative;
+  bottom: .3em;
+  font-size: 4em;
+  right: .6em;
+}
+
+#start {
+  font-family: 'Gugi';
+  position: absolute;
+  right: 54.2em;
+  top: 11.4em;
+  border: none;
+  padding: 1em;
+  border-radius: 0.3em;
+  font-size: .7em;
+  background: red;
+  color: white;
+}
+
+#start:hover {
+  background: rgb(255, 49, 49);
 }
 
 .row {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 40px;
-	border-bottom: 1px solid rgb(250, 63, 63);
+  display:flex;
+ }
+
+section > h2 {
+  margin-left: 1.5em;
+  line-height: 8em;
 }
 
-.name {
-	position: relative;
-	display: inline-block;
-	width: 75%;
-	line-height: 45px;
+#js-instructions {
+  font-family: 'Archivo Narrow';
+  width: 15em;
+  font-size: 1.2em;
+  position: relative;
+  top: -2.3em;
+  left: 6.52em;
+  text-align: left;
+  display: inline-block;
 }
 
-.score {
-	position: relative;
-	display: inline-block;
-	width: 25%;
+#wordcolors {
+  display: inline-block;
+  visibility: visible;
+  color: red;
+}
+
+#score {
+  color: rgba(255, 255, 255);
+  text-transform: uppercase;
+  height: 8em;
+  text-align: left;
+  background: rgba(32, 32, 32, 0.938);
+  box-shadow: inset 0px 0px 0.125em 0.015em rgba(0, 0, 0, 0.55);
+}
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1em auto;
+}
+
+div.game {
+    width: 17em;
+    margin: 0 auto;
+}
+
+.game div {
+  cursor: pointer;
+  border-radius: 1.3em;
+  text-align: center;
+  line-height: 1.3em;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  margin: .15em 0;
+  padding: .05em;
+}
+
+#div1 {
+  color: rgb(179, 179, 179);
+  width: 20%;
+  height: 20%;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);  
+}
+
+#div1:hover {
+  background: rgb(81, 81, 255);
+}
+
+#div2 {
+  color: rgb(179, 179, 179);
+  width: 20%;
+  height: 20%;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);  
+}
+
+#div3 {
+  color: rgb(179, 179, 179);
+  width: 20%;
+  height: 20%;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55); 
+} 
+
+#div4 {
+  color: rgb(179, 179, 179);
+  width: 20%;
+  height: 20%;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55); 
+}
+
+#divMain {
+  color: rgb(179, 179, 179);
+  width: 20%;
+  height: 20%;
+  box-shadow: inset 0px 0px .125em .015em rgba(0, 0, 0, 0.55);   
+}
+
+#divMain, #div1, #div2, #div3, #div4 {
+  border: solid white .05em;
+  
 }
