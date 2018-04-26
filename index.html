@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>E.R.N.I.E.</title> <!-- Evil Robotic Numerical Index Emitter -->
+  <title>E.R.N.I.E.</title>
+  <!-- Evil Robotic Numerical Index Emitter -->
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:700" rel="stylesheet">
 
@@ -22,16 +23,21 @@
   <main>
     <section id="instructions">
       <form id="playerForm">
-       <div class="player-info">
+        <div class="player-info">
           <label>Your Name</label>
           <input type="text" class="form-control" id="player-name" placeholder="Enter you name">
-          <h2>Score <span id="player-score"></span></h2>
+          <h2>Score
+            <span id="player-score"></span>
+          </h2>
           <button type="submit" class="player info">Submit your Score</button>
         </div>
       </form>
-      
-      <p>Click on <span id="wordcolors"></span></p>
-      
+      <div>
+        <h2 id="message-start" style="display: none;">Click on the </h2>
+        <h2 id="wordcolors"></h2>
+        <h2 id="message-end" style="display: none;"> button.</h2>
+      </div>
+
       <button id="start">START</button>
     </section>
     <section id="progressBar">
@@ -57,9 +63,9 @@
     </div>
   </main>
   <footer>
-      <div class="results">
-          <div id="savedPlayersResults"></div>
-      </div>
+    <div class="results">
+      <div id="savedPlayersResults"></div>
+    </div>
   </footer>
 </body>
 <script src="app.js"></script>
