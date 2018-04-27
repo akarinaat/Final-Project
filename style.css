@@ -115,13 +115,13 @@ a:hover {
   position: absolute;
   top: .45em;
   font-size: 4em;
-  right: 2.25em;
+  right: 8.7em;
 }
 
 #start {
   font-family: 'Gugi';
   position: absolute;
-  right: 16em;
+  right: 53em;
   top: 11.45em;
   border: none;
   padding: 1em;
@@ -143,6 +143,7 @@ a:hover {
   left: 1.3em;
   top: 5em;
   font-family: 'Gugi';
+  font-size: .55em;
   text-transform: uppercase;
   background: red;
   color: rgb(255,255,255);
@@ -164,10 +165,15 @@ a:hover {
 #playerForm {
   border-radius: .3em;
   position: absolute;
-  top: 5.3em;
-  left: 10.35em;
+  top: 4.5em;
+  left: 21.5em;
   background: rgb(97, 97, 97);
   height: 5em;
+  visibility: hidden;
+}
+
+div.player-info {
+  position: relative;
 }
 
 .playerFormScore {
@@ -184,14 +190,14 @@ section > h2 {
 }
 
 #js-instructions {
-    font-family: 'Archivo Narrow';
-    width: 8em;
-    font-size: 1.2em;
-    position: relative;
-    top: 3em;
-    left: 11em;
-    text-align: left;
-    display: inline-block;
+  font-family: 'Archivo Narrow';
+  width: 8em;
+  font-size: 1.2em;
+  position: relative;
+  top: 3em;
+  left: 7em;
+  text-align: left;
+  display: inline-block;
 }
 
 #wordcolors {
