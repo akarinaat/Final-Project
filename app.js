@@ -46,9 +46,9 @@ function savePlayer( e ) {
   var playerName = document.getElementById( 'player-name' ).value;
 
   // Run form validation.
-  if ( !validateForm( playerName ) ) {
-    return false;
-  }
+  // if ( !validateForm( playerName ) ) {
+  //   return false;
+  // }
 
   var player = {
     name: playerName,
@@ -57,7 +57,6 @@ function savePlayer( e ) {
 
   // Check for local storage.
   if ( localStorage.getItem( 'players' ) === null ) {
-
     // Add to new player to array.
     players.unshift( player );
     // Add player to local storage.
@@ -74,6 +73,7 @@ function savePlayer( e ) {
     localStorage.setItem( 'players', JSON.stringify( players ) );
     console.log( e );
     nameForm.style.visibility = 'hidden';
+    startGame.addEventListener( 'click', handleStart );
   }
   // Fetch players.
   fetchPlayers();
@@ -102,7 +102,7 @@ function fetchPlayers() {
     var name = players[ i ].name;
     var score = players[ i ].score;
 
-    savedPlayersResults.innerHTML += '<p> Player: ' + name + '  ,  Score: ' + score + '</p>';
+    savedPlayersResults.innerHTML += '<p> Player ' + name + ' || Score: ' + score + '</p>';
   }
 
   // Reset the form.
@@ -111,13 +111,13 @@ function fetchPlayers() {
 }
 
 // Validate the form.
-function validateForm( playerName ) {
-  if ( !playerName ) {
-    alert( 'Please enter your name.' );
-    return false;
-  }
-  return true;
-}
+// function validateForm( playerName ) {
+//   if ( !playerName ) {
+//     alert( 'Please enter your name.' );
+//     return false;
+//   }
+//   return true;
+// }
 
 function getRandomColor() {
   var previousColor = boxMain.style.background;
@@ -158,6 +158,11 @@ function resetBoxes() {
   boxThree.style.background = 'yellow';
   boxFour.style.background = 'green';
   boxMain.style.background = 'purple';
+  boxOne.textContent = '1';
+  boxTwo.textContent = '2';
+  boxThree.textContent = '3';
+  boxFour.textContent = '4';
+  boxMain.textContent = '5';
 }
 
 var setBackgroundColor1 = function () {
@@ -252,6 +257,7 @@ function handleClick( event ) {
         nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
+        startGame.removeEventListener( 'click', handleStart );
       } else {
         setBackgroundColor1();
         setTextValue1();
@@ -285,6 +291,7 @@ function handleClick( event ) {
         nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
+        startGame.removeEventListener( 'click', handleStart );
         getModal();
       } else {
         setBackgroundColor2();
@@ -319,6 +326,7 @@ function handleClick( event ) {
         nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
+        startGame.removeEventListener( 'click', handleStart );
         getModal();
       } else {
         setBackgroundColor3();
@@ -353,6 +361,7 @@ function handleClick( event ) {
         nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
+        startGame.removeEventListener( 'click', handleStart );
         getModal();
       } else {
         setBackgroundColor4();
@@ -397,6 +406,7 @@ function timer( width ) {
       nameForm.style.visibility = 'visible';
       getSpan.style.visibility = 'hidden';
       startGame.textContent = 'RETRY';
+      startGame.removeEventListener( 'click', handleStart );
       getModal();
       clearInterval( id );
 
