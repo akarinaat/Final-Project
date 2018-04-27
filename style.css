@@ -282,6 +282,44 @@ div.game {
 
 img {
   margin-left: 2em;
+  margin-bottom: .5em;
+  width: 8em;
+  height: 8em;
+  border-radius: 4em;
+}
+     
+ .text {
+  transform: translate(0,30%);
+  font-family: 'Archivo Narrow';
+  width: 350px;
+  height: 10em;
+  display: inline-block;
+  /* overflow: scroll; */
+  margin-left: 30px;
+  margin-bottom: 0px;
+  vertical-align: 1.5em;
+  color: white;
+  font-size: 0.7em;
+ }
+ 
+ #sectioned img {
+  position: relative;
+  top: 2em;
+ }
+ 
+ /* .text {
+  transform: translate(0,30%);
+  font-family: ‘Archivo Narrow’;
+ } */
+ 
+ /* p {
+  color: white;
+  font-size: 0.7em;
+ } */
+ 
+
+/* img {
+  margin-left: 2em;
   width: 8em;
   height: 8em;
 }
@@ -304,12 +342,12 @@ img {
 .text {
   transform: translate(0,30%);
   font-family: 'Archivo Narrow';
-}
+} */
 
-p {
+/* p {
   color: white;
   font-size: 0.7em;
-}
+} */
 
 .modal-content {
   position: absolute;
