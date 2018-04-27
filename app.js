@@ -46,9 +46,9 @@ function savePlayer( e ) {
   var playerName = document.getElementById( 'player-name' ).value;
 
   // Run form validation.
-  if ( !validateForm( playerName ) ) {
-    return false;
-  }
+  // if ( !validateForm( playerName ) ) {
+  //   return false;
+  // }
 
   var player = {
     name: playerName,
@@ -102,7 +102,7 @@ function fetchPlayers() {
     var name = players[ i ].name;
     var score = players[ i ].score;
 
-    savedPlayersResults.innerHTML += '<p> Player: ' + name + '  ,  Score: ' + score + '</p>';
+    savedPlayersResults.innerHTML += '<p> Player ' + name + ' || Score: ' + score + '</p>';
   }
 
   // Reset the form.
@@ -111,13 +111,13 @@ function fetchPlayers() {
 }
 
 // Validate the form.
-function validateForm( playerName ) {
-  if ( !playerName ) {
-    alert( 'Please enter your name.' );
-    return false;
-  }
-  return true;
-}
+// function validateForm( playerName ) {
+//   if ( !playerName ) {
+//     alert( 'Please enter your name.' );
+//     return false;
+//   }
+//   return true;
+// }
 
 function getRandomColor() {
   var previousColor = boxMain.style.background;
