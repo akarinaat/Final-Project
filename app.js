@@ -10,6 +10,7 @@ var messageStart = document.getElementById( 'message-start' );
 var messageEnd = document.getElementById( 'message-end' );
 var getScore = document.getElementById( 'player-score' );
 var startGame = document.getElementById( 'start' );
+var nameForm = document.getElementById( 'playerForm' );
 
 var tempColor;
 var playerScore = 0;
@@ -28,7 +29,7 @@ function savePlayer( e ) {
   var playerName = document.getElementById( 'player-name' ).value;
 
   // Run form validation.
-  if ( !validateForm( playerName, playerScore ) ) {
+  if ( !validateForm( playerName ) ) {
     return false;
   }
 
@@ -54,7 +55,7 @@ function savePlayer( e ) {
 
     // Save updated array to local storage.
     localStorage.setItem( 'players', JSON.stringify( players ) );
-
+    nameForm.style.visibility = 'hidden';
   }
   // Fetch players.
   fetchPlayers();
@@ -93,9 +94,9 @@ function fetchPlayers() {
 }
 
 // Validate the form.
-function validateForm( playerName, playerScore ) {
-  if ( !playerName || !playerScore ) {
-    alert( 'Please fill in the Name and start playing' );
+function validateForm( playerName ) {
+  if ( !playerName ) {
+    alert( 'Please enter your name.' );
     return false;
   }
 
@@ -232,6 +233,7 @@ function handleClick( event ) {
         messageStart.style.display = 'none';
         messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
       } else {
@@ -264,6 +266,7 @@ function handleClick( event ) {
         messageStart.style.display = 'none';
         messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
       } else {
@@ -296,6 +299,7 @@ function handleClick( event ) {
         messageStart.style.display = 'none';
         messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
       } else {
@@ -328,6 +332,7 @@ function handleClick( event ) {
         messageStart.style.display = 'none';
         messageEnd.style.display = 'none';
         progressBar = timer( 100 );
+        nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
       } else {
@@ -361,32 +366,18 @@ function timer( width ) {
   var id = setInterval( frame, speedTimer );
   function frame() {
     if ( width >= 100 ) {
-
-
-
-
+      // Set game to fail state.
       startGame.addEventListener( 'click', handleStart );
       boxOne.removeEventListener( 'click', handleClick );
       boxTwo.removeEventListener( 'click', handleClick );
       boxThree.removeEventListener( 'click', handleClick );
       boxFour.removeEventListener( 'click', handleClick );
-      // Set game to fail state.
       displayBar.style.visibility = 'hidden';
       messageStart.style.display = 'none';
       messageEnd.style.display = 'none';
-      //progressBar = timer( 100 );
+      nameForm.style.visibility = 'visible';
       getSpan.style.visibility = 'hidden';
       startGame.textContent = 'RETRY';
-
-
-
-
-
-
-
-
-
-
       clearInterval( id );
 
     } else {

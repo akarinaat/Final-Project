@@ -112,23 +112,27 @@ a:hover {
 #player-score {
   width: 2em;
   text-align: center;
-  position: relative;
-  bottom: .3em;
+  position: absolute;
+  top: .45em;
   font-size: 4em;
-  right: .6em;
+  right: 8.7em;
 }
 
 #start {
   font-family: 'Gugi';
   position: absolute;
-  right: 54.2em;
-  top: 11.4em;
+  right: 53em;
+  top: 11.45em;
   border: none;
   padding: 1em;
   border-radius: 0.3em;
   font-size: .7em;
   background: red;
   color: white;
+}
+
+#start:hover {
+  background: rgb(255, 49, 49);
 }
 
 #submit {
@@ -139,6 +143,7 @@ a:hover {
   left: 1.3em;
   top: 5em;
   font-family: 'Gugi';
+  font-size: .55em;
   text-transform: uppercase;
   background: red;
   color: rgb(255,255,255);
@@ -158,21 +163,21 @@ a:hover {
 }
 
 #playerForm {
-  border-bottom-left-radius: .3em;
-  border-top-left-radius: .3em;
-  position: relative;
-  float: right;
+  border-radius: .3em;
+  position: absolute;
+  top: 4.5em;
+  left: 21.5em;
   background: rgb(97, 97, 97);
-  margin-top: 2.2em;
   height: 5em;
+  visibility: hidden;
+}
+
+div.player-info {
+  position: relative;
 }
 
 .playerFormScore {
   margin: 0 auto;
-}
-
-#start:hover {
-  background: rgb(255, 49, 49);
 }
 
 .row {
@@ -189,8 +194,8 @@ section > h2 {
   width: 8em;
   font-size: 1.2em;
   position: relative;
-  top: -3.3em;
-  left: 6.52em;
+  top: 3em;
+  left: 7em;
   text-align: left;
   display: inline-block;
 }
@@ -198,7 +203,6 @@ section > h2 {
 #wordcolors {
   display: inline-block;
   visibility: visible;
-  color: red;
 }
 
 #score {
