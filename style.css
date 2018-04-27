@@ -281,24 +281,32 @@ div.game {
 }
 
 img {
-  margin-left: 20px;
-  width: 340px;
-  height: 340px;
+  margin-left: 2em;
+  width: 8em;
+  height: 8em;
 }
      
 #sectioned .text {
-  border: 1px solid transparent;
   width: 350px;
-  height: 360px;
+  height: 10em;
   display: inline-block;
   overflow: scroll;
   margin-left: 30px;
   margin-bottom: 0px;
-  vertical-align: 1em;
+  vertical-align: 1.5em;
+}
+
+#sectioned img {
+  position: relative;
+  top: -1em;
 }
 
 .text {
-  transform: translate(0,20%);
+  transform: translate(0,30%);
   font-family: 'Archivo Narrow';
 }
 
+p {
+  color: white;
+  font-size: 0.7em;
+}
