@@ -22,7 +22,7 @@ main {
   height: 100%;
   width: 65%;
   margin: 0 auto;
-  padding-bottom: 1.4em;
+  padding-bottom: 1.3em;
   box-shadow: inset 0px 0px 0.25em 0.055em rgba(0, 0, 0, 0.55);
 }
 
@@ -49,7 +49,7 @@ p {
   position: absolute;
   left: 1.5em;
   background: none;
-  color: rgba(32, 32, 32, 0.938);
+  color: rgb(255, 49, 49);
 }
 
 nav ul {
@@ -310,3 +310,42 @@ p {
   color: white;
   font-size: 0.7em;
 }
+
+.modal-content {
+  position: absolute;
+  color: red;
+  top: 10em;
+  right: 11.33em;
+  background-color: white;
+  margin: auto;
+  padding: 1em;
+  width: 30%;
+  z-index: 1;
+  text-align: center;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  border-radius: .3em;
+  opacity: .9;
+}
+
+#myModal {
+  display: none;
+  z-index: 2;
+}
+
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 2;
+} 
+

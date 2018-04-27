@@ -17,14 +17,31 @@ var playerScore = 0;
 var tempTextValue;
 var progressBar;
 
-var players = [];
+// Get the modal
+var modal = document.getElementById( 'myModal' );
 
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName( 'close' )[ 0 ];
+
+// When the user clicks the button, open the modal
+function getModal() {
+  modal.style.display = 'block';
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = 'none';
+};
+
+var players = [];
 fetchPlayers();
 // Listen for form submit.
 document.getElementById( 'playerForm' ).addEventListener( 'submit', savePlayer );
 
 // Save new player.
 function savePlayer( e ) {
+  // e.preventDefault();
   // Get values from form inputs.
   var playerName = document.getElementById( 'player-name' ).value;
 
@@ -55,6 +72,7 @@ function savePlayer( e ) {
 
     // Save updated array to local storage.
     localStorage.setItem( 'players', JSON.stringify( players ) );
+    console.log( e );
     nameForm.style.visibility = 'hidden';
   }
   // Fetch players.
@@ -85,7 +103,6 @@ function fetchPlayers() {
     var score = players[ i ].score;
 
     savedPlayersResults.innerHTML += '<p> Player: ' + name + '  ,  Score: ' + score + '</p>';
-
   }
 
   // Reset the form.
@@ -99,7 +116,6 @@ function validateForm( playerName ) {
     alert( 'Please enter your name.' );
     return false;
   }
-
   return true;
 }
 
@@ -269,6 +285,7 @@ function handleClick( event ) {
         nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
+        getModal();
       } else {
         setBackgroundColor2();
         setTextValue2();
@@ -302,6 +319,7 @@ function handleClick( event ) {
         nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
+        getModal();
       } else {
         setBackgroundColor3();
         setTextValue3();
@@ -335,6 +353,7 @@ function handleClick( event ) {
         nameForm.style.visibility = 'visible';
         getSpan.style.visibility = 'hidden';
         startGame.textContent = 'RETRY';
+        getModal();
       } else {
         setBackgroundColor4();
         setTextValue4();
@@ -378,6 +397,7 @@ function timer( width ) {
       nameForm.style.visibility = 'visible';
       getSpan.style.visibility = 'hidden';
       startGame.textContent = 'RETRY';
+      getModal();
       clearInterval( id );
 
     } else {
