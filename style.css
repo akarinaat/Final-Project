@@ -140,7 +140,7 @@ a:hover {
   padding: 1em;
   border-radius: .3em;
   position: absolute;
-  left: 1.3em;
+  left: 5.33em;
   top: 5em;
   font-family: 'Gugi';
   font-size: .55em;
@@ -165,8 +165,8 @@ a:hover {
 #playerForm {
   border-radius: .3em;
   position: absolute;
-  top: 4.5em;
-  left: 21.5em;
+  top: 5.33em;
+  left: 21.8em;
   background: rgb(97, 97, 97);
   height: 5em;
   visibility: hidden;
@@ -191,11 +191,11 @@ section > h2 {
 
 #js-instructions {
   font-family: 'Archivo Narrow';
-  width: 8em;
-  font-size: 1.2em;
+  width: 10em;
+  font-size: 1.8em;
   position: relative;
-  top: 3em;
-  left: 7em;
+  top: 2em;
+  left: 4.7em;
   text-align: left;
   display: inline-block;
 }
