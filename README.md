@@ -1,20 +1,24 @@
-# Final-Project
+# E.R.N.I.E.
 
-Interactive game.
+### Evil Robotic Numerical Index Emitter.
 
-Kevin 
-4/23/2018 1:20pm 
-Getting started on making the project. 
-Already have the foundations: Setting up html/js with wireframe in mind. 
-Jermaine & Roman, working on setting up html with right divs and sections for the structure of the game page. 
-Karina, setting up repository and .eslint, css reset, MIT license. 
-Kevin, working on readme/userStories
+***
 
-4/23/2018 5:00pm 
-Got logic working, we were able to figure out how to grab the element by id and make the connection between html and js. The style that was added in index.html was the problem we were missing. That helped the code work because originally we weren't able to connect to the said color by 'click' due to not adding a style on line 15, 20-23 and 26. 
+## About
 
-4/24/2018 12:00pm 
-Added progress bar. Got rid of 'ghost bars'. 
-Struggled a lot on getting the randomization of said color in text to stay with given color. 
-Added/manipulated 'if conditional statements'. 
-Added a start button to start the random color. 
+E.R.N.I.E. was born as a result of everything learned from 201 lectures and projects. It is an interactive game to test user’s reflexes and concentration.
+
+***
+
+## Technologies used:
+- HTML5 
+- CSS3
+- JavaScript
+
+***
+
+## Credit:
+ - Karina Amador
+ - Jermaine Walker
+ - Roman Kireev
+ - Kevin Hwangpo
