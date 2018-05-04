@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; // Testing the new repo.
 
 var boxOne = document.getElementById( 'div1' );
 var boxTwo = document.getElementById( 'div2' );
