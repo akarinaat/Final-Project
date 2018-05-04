@@ -102,22 +102,16 @@ function fetchPlayers() {
     var name = players[ i ].name;
     var score = players[ i ].score;
 
-    savedPlayersResults.innerHTML += '<p> Player ' + name + ' || Score: ' + score + '</p>';
+    if ( name === '' ) {
+      name = 'anonymous';
+    }
+    savedPlayersResults.innerHTML += '<p>' + name + ' ― ' + score + '</p>';
   }
 
   // Reset the form.
   document.getElementById( 'playerForm' ).reset();
   playerScore = 0;
 }
-
-// Validate the form.
-// function validateForm( playerName ) {
-//   if ( !playerName ) {
-//     alert( 'Please enter your name.' );
-//     return false;
-//   }
-//   return true;
-// }
 
 function getRandomColor() {
   var previousColor = boxMain.style.background;
@@ -218,7 +212,7 @@ function handleStart( event ) {
     case 'start':
       playerScore = 0;
       getScore.textContent = 0;
-      speedTimer = 65;
+      speedTimer = 85;
       resetBoxes();
       progressBar = timer( 0 );
       startGame.removeEventListener( 'click', handleStart );
@@ -264,7 +258,7 @@ function handleClick( event ) {
         // Function to randomize textContent span color.
         getSpanColor();
         getSpan.textContent = getRandomColor();
-        speedTimer -= 2;
+        speedTimer -= 1.3;
         if ( progressBar ) {
           clearInterval( progressBar );
         }
@@ -299,7 +293,7 @@ function handleClick( event ) {
         // Function to randomize textContent span color.
         getSpanColor();
         getSpan.textContent = getRandomColor();
-        speedTimer -= 2;
+        speedTimer -= 1.6;
         if ( progressBar ) {
           clearInterval( progressBar );
         }
@@ -334,7 +328,7 @@ function handleClick( event ) {
         // Function to randomize textContent span color.
         getSpanColor();
         getSpan.textContent = getRandomColor();
-        speedTimer -= 2;
+        speedTimer -= 1.6;
         if ( progressBar ) {
           clearInterval( progressBar );
         }
@@ -369,7 +363,7 @@ function handleClick( event ) {
         // Function to randomize textContent span color.
         getSpanColor();
         getSpan.textContent = getRandomColor();
-        speedTimer -= 2;
+        speedTimer -= 1.6;
         if ( progressBar ) {
           clearInterval( progressBar );
         }
@@ -388,7 +382,7 @@ boxTwo.addEventListener( 'click', handleClick );
 boxThree.addEventListener( 'click', handleClick );
 boxFour.addEventListener( 'click', handleClick );
 
-var speedTimer = 65;
+var speedTimer = 85;
 var displayBar = document.getElementById( 'myBar' );
 function timer( width ) {
   var id = setInterval( frame, speedTimer );
@@ -416,7 +410,6 @@ function timer( width ) {
     }
   }
   return id;
-
 }
 
 
