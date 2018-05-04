@@ -103,7 +103,7 @@ function fetchPlayers() {
     var score = players[ i ].score;
 
     if ( name === '' ) {
-      name = 'anonymous';
+      name = 'human';
     }
     savedPlayersResults.innerHTML += '<p>' + name + ' ― ' + score + '</p>';
   }
